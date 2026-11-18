@@ -12,6 +12,7 @@
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
+import { Analytics } from "@vercel/analytics/react";
 import useScrollReveal from "./hooks/useScrollReveal.js";
 import Nav from "./components/Nav.jsx";
 import { PageLoader, RouteProgressBar } from "./components/Loader.jsx";
@@ -197,6 +198,9 @@ export default function App() {
 
       {/* Site Footer */}
       <Footer onNavigate={navigate} />
+
+      {/* Vercel Web Analytics */}
+      <Analytics />
     </>
   );
 }
