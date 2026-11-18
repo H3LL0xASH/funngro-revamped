@@ -48,7 +48,7 @@ export default function SheLancers() {
               />
               <span className="shelancers__badge">
                 <ShieldCheck className="size-4" />
-                Women-only briefs
+                100% secured
               </span>
               <span className="shelancers__name">
                 <b>SheLancer</b>
