@@ -32,9 +32,10 @@ Built with two complete, connected routes:
 
 ```text
 ├── index.html                  # SEO meta tags, JSON-LD schema, font preloads & theme boot script
+├── vercel.json                 # Vercel deployment routing, SPA rewrites & security headers
 ├── DESIGN.md                   # Short visual, layout & motion design guide
 ├── For-SEO-report/             # Funngro.com SEO assessment report & Soft 404 proof screenshots
-├── public/                     # Fonts, responsive hero WebPs, robots.txt, sitemap.xml, llms.txt
+├── public/                     # 404.html, fonts, responsive hero WebPs, robots.txt, sitemap.xml, llms.txt
 └── src/
     ├── App.jsx                 # Route switcher (/ and /earn) + Home layout
     ├── hooks/
@@ -46,6 +47,7 @@ Built with two complete, connected routes:
     │   └── earnContent.js      # /earn data (categories, steps, ladder, roadmap, FAQs)
     ├── components/
     │   ├── Nav.jsx, Footer.jsx, Logo.jsx, Icons.jsx  # Shared global UI components
+    │   ├── Loader.jsx          # Branded rising growth bars & route progress bar
     │   ├── home/               # Home page sections (Hero, BrandsStrip, HowItWorks, SheLancers, AppShowcase, Stories, Journey, BusinessCTA, FAQ)
     │   └── earn/               # /earn page sections (EarnHero, EarnCategories, EarnSteps, EarnLadder, EarnProgression, EarnFAQ)
     └── styles/                 # Base tokens, dark forest theme, and per-component CSS

@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 — Page Not Found · Funngro</title>
+    <meta name="robots" content="noindex, follow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("funngro-theme");
+          if (saved === "dark" || saved === "light") {
+            document.documentElement.dataset.theme = saved;
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <style>
+      :root {
+        --color-cream: #fffdf6;
+        --color-paper: #ffffff;
+        --color-ink: #092617;
+        --color-muted: #4b6354;
+        --color-forest: #092617;
+        --color-brand: #16a34a;
+        --color-accent: #c6f45e;
+        --color-accent-soft: rgba(198, 244, 94, 0.22);
+        --color-line: rgba(9, 38, 23, 0.08);
+        --color-mist: #f4f7f2;
+        --shadow-card: 0 20px 48px -18px rgba(9, 38, 23, 0.12);
+        --font-sans: "Figtree", system-ui, -apple-system, sans-serif;
+        --font-display: "Bricolage Grotesque", system-ui, -apple-system, sans-serif;
+      }
+
+      :root[data-theme="dark"] {
+        --color-cream: #0c2317;
+        --color-paper: #153624;
+        --color-ink: #effaf2;
+        --color-muted: #a9cab4;
+        --color-forest: #effaf2;
+        --color-brand: #4ade80;
+        --color-accent: #c6f45e;
+        --color-accent-soft: rgba(198, 244, 94, 0.14);
+        --color-line: rgba(198, 244, 94, 0.16);
+        --color-mist: #112d1e;
+        --shadow-card: 0 22px 50px -26px rgba(2, 12, 6, 0.78);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background: var(--color-cream);
+        color: var(--color-ink);
+        font-family: var(--font-sans);
+        line-height: 1.6;
+        overflow-x: clip;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      body::before {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        content: "";
+        pointer-events: none;
+        background-color: var(--color-cream);
+        background-image:
+          radial-gradient(circle at 10% 12%, rgba(198, 244, 94, 0.2) 0%, transparent 38%),
+          radial-gradient(circle at 90% 35%, rgba(24, 154, 74, 0.1) 0%, transparent 36%);
+      }
+
+      :root[data-theme="dark"] body::before {
+        background-color: #0c2317;
+        background-image:
+          radial-gradient(circle at 10% 12%, rgba(198, 244, 94, 0.1) 0%, transparent 38%),
+          radial-gradient(circle at 90% 35%, rgba(34, 197, 94, 0.11) 0%, transparent 36%);
+      }
+
+      .header {
+        padding: 1.5rem 1.5rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .logo-link {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        gap: 0.5rem;
+      }
+
+      .main-wrapper {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2.5rem 1.25rem 3.5rem;
+      }
+
+      .card {
+        max-width: 620px;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        background: var(--color-paper);
+        border: 1px solid var(--color-line);
+        border-radius: 28px;
+        padding: 3.25rem 2rem;
+        box-shadow: var(--shadow-card);
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.8125rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 0.35rem 0.85rem;
+        border-radius: 999px;
+        background: var(--color-accent-soft);
+        color: #15803d;
+        border: 1px solid rgba(198, 244, 94, 0.45);
+        margin-bottom: 1.25rem;
+      }
+
+      :root[data-theme="dark"] .badge {
+        color: #c6f45e;
+      }
+
+      .code {
+        font-family: var(--font-display);
+        font-size: clamp(4.5rem, 12vw, 7.5rem);
+        font-weight: 900;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        margin: 0 0 0.5rem;
+        background: linear-gradient(135deg, #16a34a 0%, #092617 70%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      :root[data-theme="dark"] .code {
+        background: linear-gradient(135deg, #c6f45e 0%, #4ade80 60%, #ffffff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .title {
+        font-family: var(--font-display);
+        font-size: clamp(1.5rem, 3.5vw, 2rem);
+        font-weight: 800;
+        color: var(--color-forest);
+        margin: 0 0 1rem;
+        line-height: 1.2;
+      }
+
+      .copy {
+        font-size: 1.0625rem;
+        color: var(--color-muted);
+        margin: 0 auto 2rem;
+        max-width: 480px;
+        line-height: 1.6;
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.85rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        font-size: 0.9375rem;
+        font-weight: 700;
+        padding: 0.75rem 1.45rem;
+        border-radius: 999px;
+        text-decoration: none;
+        transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn-primary {
+        background: #092617;
+        color: #ffffff;
+      }
+
+      :root[data-theme="dark"] .btn-primary {
+        background: #16a34a;
+        color: #ffffff;
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: var(--color-forest);
+        border: 1px solid var(--color-line);
+      }
+
+      .btn-outline:hover {
+        background: var(--color-mist);
+      }
+
+      .links {
+        border-top: 1px solid var(--color-line);
+        padding-top: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+      }
+
+      .link-label {
+        font-size: 0.8125rem;
+        font-weight: 600;
+        color: var(--color-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .link {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--color-forest);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        transition: color 150ms ease;
+      }
+
+      .link:hover {
+        color: var(--color-brand);
+      }
+
+      @media (max-width: 480px) {
+        .card {
+          padding: 2.25rem 1.15rem;
+          border-radius: 20px;
+        }
+
+        .code {
+          font-size: 4.25rem;
+        }
+
+        .title {
+          font-size: 1.35rem;
+        }
+
+        .actions {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .btn {
+          width: 100%;
+        }
+
+        .links {
+          gap: 0.85rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <a class="logo-link" href="/" aria-label="Funngro Home">
+        <svg width="128" height="34" viewBox="0 0 178 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12.9238 8.01257C12.9238 5.79555 14.721 4 16.938 4C19.155 4 20.9522 5.79555 20.9522 8.01257V39.9874C20.9522 42.2045 19.155 44 16.938 44C14.721 44 12.9238 42.2045 12.9238 39.9874V8.01257Z" fill="#16a34a"/>
+          <path d="M2.93822 17.0094C2.93822 14.7924 4.7354 12.9968 6.95242 12.9968C9.16945 12.9968 10.9666 14.7924 10.9666 17.0094V39.9874C10.9666 42.2045 9.16945 44 6.95242 44C4.7354 44 2.93822 42.2045 2.93822 39.9874V17.0094Z" fill="#22c55e"/>
+          <path d="M22.9094 25.0063C22.9094 22.7893 24.7066 20.9937 26.9236 20.9937C29.1407 20.9937 30.9378 22.7893 30.9378 25.0063V39.9874C30.9378 42.2045 29.1407 44 26.9236 44C24.7066 44 22.9094 42.2045 22.9094 39.9874V25.0063Z" fill="#4ade80"/>
+          <path d="M32.895 33.0031C32.895 30.7861 34.6922 28.9906 36.9092 28.9906C39.1263 28.9906 40.9234 30.7861 40.9234 33.0031V39.9874C40.9234 42.2045 39.1263 44 36.9092 44C34.6922 44 32.895 42.2045 32.895 39.9874V33.0031Z" fill="#c6f45e"/>
+          <text x="48" y="32" font-family="'Figtree', system-ui, sans-serif" font-weight="800" font-size="24" fill="currentColor">funngro</text>
+        </svg>
+      </a>
+    </header>
+
+    <main class="main-wrapper">
+      <div class="card">
+        <span class="badge">HTTP 404 · Page Not Found</span>
+        <div class="code" aria-hidden="true">404</div>
+        <h1 class="title">We couldn't find that page</h1>
+        <p class="copy">
+          The requested URL doesn't exist, may have been moved, or is no longer available.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="/">Back to Home</a>
+          <a class="btn btn-outline" href="/earn">Explore Ways to Earn</a>
+        </div>
+
+        <div class="links">
+          <span class="link-label">Popular pages:</span>
+          <a class="link" href="/">Home</a>
+          <a class="link" href="/earn">Earn Guide</a>
+          <a class="link" href="/#how-it-works">How It Works</a>
+          <a class="link" href="/#faq">FAQs</a>
+        </div>
+      </div>
+    </main>
+
+    <div></div>
+  </body>
+</html>

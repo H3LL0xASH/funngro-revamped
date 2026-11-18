@@ -5,7 +5,6 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import useScrollReveal from "./hooks/useScrollReveal.js";
 import Nav from "./components/Nav.jsx";
-import NotFound from "./components/NotFound.jsx";
 import { PageLoader, RouteProgressBar } from "./components/Loader.jsx";
 import Hero from "./components/home/Hero.jsx";
 import BrandsStrip from "./components/home/BrandsStrip.jsx";
@@ -40,8 +39,6 @@ export default function App() {
   const homeRef = useRef(null);
   const routeTimerRef = useRef(null);
   const isEarnRoute = pathname === "/earn";
-  const isHomeRoute = pathname === "/";
-  const isNotFoundRoute = !isEarnRoute && !isHomeRoute;
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -91,12 +88,10 @@ export default function App() {
   useEffect(() => {
     if (isEarnRoute) {
       document.title = "Earn Online with Real Brands — Funngro";
-    } else if (isNotFoundRoute) {
-      document.title = "404 — Page Not Found · Funngro";
     } else {
       document.title = "Funngro — Earn Online with India's Biggest Brands";
     }
-  }, [isEarnRoute, isNotFoundRoute]);
+  }, [isEarnRoute]);
 
   const navigate = useCallback((to) => {
     const [rawPath, hash] = to.split("#");
@@ -161,8 +156,6 @@ export default function App() {
           >
             <EarnPage onNavigate={navigate} />
           </Suspense>
-        ) : isNotFoundRoute ? (
-          <NotFound onNavigate={navigate} currentPath={pathname} />
         ) : (
           <div className="home-page" ref={homeRef}>
             <Hero />
