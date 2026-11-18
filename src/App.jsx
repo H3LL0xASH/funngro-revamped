@@ -14,6 +14,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import useScrollReveal from "./hooks/useScrollReveal.js";
 import Nav from "./components/Nav.jsx";
+import { PageLoader, RouteProgressBar } from "./components/Loader.jsx";
 import Hero from "./components/home/Hero.jsx";
 import BrandsStrip from "./components/home/BrandsStrip.jsx";
 import HowItWorks from "./components/home/HowItWorks.jsx";
@@ -40,8 +41,48 @@ function getNormalizedPath() {
 
 export default function App() {
   const [pathname, setPathname] = useState(getNormalizedPath);
+  const [splashState, setSplashState] = useState(() =>
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ? "hidden"
+      : "visible",
+  ); // "visible" -> "exiting" -> "hidden"
+  const [routeLoading, setRouteLoading] = useState(false);
   const homeRef = useRef(null);
+  const routeTimerRef = useRef(null);
   const isEarnRoute = pathname === "/earn";
+
+  // Show a crisp, brief Funngro boot loader until the page finishes painting, then unmount cleanly
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return undefined;
+    }
+
+    let exitTimer;
+    let hideTimer;
+
+    const finishSplash = () => {
+      exitTimer = setTimeout(() => {
+        setSplashState("exiting");
+        hideTimer = setTimeout(() => {
+          setSplashState("hidden");
+        }, 320);
+      }, 360);
+    };
+
+    if (document.readyState === "complete") {
+      finishSplash();
+    } else {
+      window.addEventListener("load", finishSplash, { once: true });
+    }
+
+    return () => {
+      clearTimeout(exitTimer);
+      clearTimeout(hideTimer);
+      clearTimeout(routeTimerRef.current);
+      window.removeEventListener("load", finishSplash);
+    };
+  }, []);
 
   // Gently fade in non-pinned Home sections as the visitor scrolls down.
   // We intentionally leave pinned GSAP sections (HowItWorks & AppShowcase) untouched.
@@ -83,6 +124,13 @@ export default function App() {
     }
 
     if (targetPath !== current) {
+      // Flash the sleek top lime-emerald progress bar when switching between `/` and `/earn`
+      setRouteLoading(true);
+      clearTimeout(routeTimerRef.current);
+      routeTimerRef.current = setTimeout(() => {
+        setRouteLoading(false);
+      }, 480);
+
       setPathname(targetPath);
       if (!hash) {
         window.scrollTo({ top: 0, behavior: "instant" });
@@ -109,13 +157,27 @@ export default function App() {
         Skip to content
       </a>
 
+      {/* Quick branded splash loader on first visit (unmounts right after fade-out) */}
+      {splashState !== "hidden" ? (
+        <PageLoader
+          variant="splash"
+          exiting={splashState === "exiting"}
+          label={isEarnRoute ? "Preparing your earn guide…" : "Loading opportunities…"}
+        />
+      ) : null}
+
+      {/* Sleek top progress bar during `/` <-> `/earn` transitions */}
+      <RouteProgressBar active={routeLoading} />
+
       {/* Sticky Top Header (shrinks subtly on scroll) */}
       <Nav currentPath={pathname} onNavigate={navigate} />
 
       {/* Main Page Area */}
       <main id="main-content">
         {isEarnRoute ? (
-          <Suspense fallback={null}>
+          <Suspense
+            fallback={<PageLoader variant="inline" label="Loading Earn guide…" />}
+          >
             <EarnPage onNavigate={navigate} />
           </Suspense>
         ) : (

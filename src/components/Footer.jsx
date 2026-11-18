@@ -140,9 +140,9 @@ export default function Footer({ onNavigate }) {
                 <GitHub className="size-3.5" />
               </a>
               <a
-                href="mailto:askfhghk11@proton.me"
-                aria-label="Email developer at askfhghk11@proton.me"
-                title="askfhghk11@proton.me"
+                href="mailto:ashx111@proton.me"
+                aria-label="Email developer at ashx111@proton.me"
+                title="ashx111@proton.me"
               >
                 <Mail className="size-3.5" />
               </a>

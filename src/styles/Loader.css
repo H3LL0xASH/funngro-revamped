@@ -1,0 +1,181 @@
+/* ==========================================================================
+   FUNNGRO BRANDED LOADERS (ICON-ONLY, NO TEXT)
+   Lightweight, GPU-only (transform + opacity) loading states matching both
+   Light Cream and Greenish Forest Dark themes.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Shared Rising Growth Bars Emblem
+   -------------------------------------------------------------------------- */
+.fn-loader {
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+.fn-loader__bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 44px;
+  padding: 0.62rem 0.78rem;
+  border-radius: 16px;
+  background: #092617;
+  box-shadow:
+    0 14px 32px -12px rgb(9 38 23 / 0.36),
+    0 0 0 1px rgb(198 244 94 / 0.24);
+}
+
+.fn-loader__bar {
+  width: 6px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #c6f45e 0%, #16a34a 100%);
+  transform-origin: bottom center;
+  will-change: transform, opacity;
+  animation: fnBarWave 1.05s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.fn-loader__bar--1 {
+  height: 14px;
+  animation-delay: 0ms;
+}
+
+.fn-loader__bar--2 {
+  height: 20px;
+  animation-delay: 120ms;
+}
+
+.fn-loader__bar--3 {
+  height: 25px;
+  animation-delay: 240ms;
+}
+
+.fn-loader__bar--4 {
+  height: 30px;
+  animation-delay: 360ms;
+}
+
+@keyframes fnBarWave {
+  0%,
+  100% {
+    opacity: 0.52;
+    transform: scaleY(0.55);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. Splash Variant (Brief Full-Screen Initial Boot Loader)
+   -------------------------------------------------------------------------- */
+.fn-loader--splash {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  background-color: var(--color-cream);
+  background-image:
+    radial-gradient(circle at 20% 20%, rgb(198 244 94 / 0.24) 0%, transparent 45%),
+    radial-gradient(circle at 82% 78%, rgb(24 154 74 / 0.14) 0%, transparent 45%);
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fn-loader--splash.is-exiting {
+  opacity: 0;
+  transform: scale(1.02);
+  pointer-events: none;
+}
+
+:root[data-theme="dark"] .fn-loader--splash {
+  background-color: #0c2317;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgb(198 244 94 / 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 82% 78%, rgb(34 197 94 / 0.12) 0%, transparent 45%);
+}
+
+:root[data-theme="dark"] .fn-loader__bars {
+  background: #153624;
+  box-shadow:
+    0 14px 34px -10px rgb(2 12 6 / 0.8),
+    0 0 0 1px rgb(198 244 94 / 0.32);
+}
+
+/* --------------------------------------------------------------------------
+   3. Inline Variant (Suspense Fallback for Lazy `/earn` Page)
+   -------------------------------------------------------------------------- */
+.fn-loader--inline {
+  min-height: min(68vh, 520px);
+  padding: 3rem 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. Compact Variant (Embedded Video / Media Buffering Overlay)
+   -------------------------------------------------------------------------- */
+.fn-loader--compact {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: radial-gradient(circle at center, #0d321e 0%, #071b10 100%);
+}
+
+.fn-loader--compact .fn-loader__bars {
+  background: rgb(255 255 255 / 0.06);
+  height: 38px;
+  padding: 0.5rem 0.68rem;
+}
+
+/* --------------------------------------------------------------------------
+   5. Top Route Progress Bar (Shown Briefly on `/` <-> `/earn` Switches)
+   -------------------------------------------------------------------------- */
+.fn-route-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 130;
+  height: 3px;
+  overflow: hidden;
+  pointer-events: none;
+  background: rgb(22 163 74 / 0.14);
+}
+
+.fn-route-bar__fill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #16a34a 0%, #4ade80 48%, #c6f45e 100%);
+  transform-origin: left center;
+  will-change: transform, opacity;
+  animation: fnRouteSweep 460ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes fnRouteSweep {
+  0% {
+    opacity: 1;
+    transform: scaleX(0.08);
+  }
+  70% {
+    opacity: 1;
+    transform: scaleX(0.88);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fn-loader__bar,
+  .fn-route-bar__fill {
+    animation: none;
+  }
+
+  .fn-loader__bar {
+    opacity: 1;
+    transform: none;
+  }
+}

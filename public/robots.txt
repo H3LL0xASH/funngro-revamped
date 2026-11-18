@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.funngro.com/sitemap.xml
+Sitemap: https://funngro-revamped.vercel.app/sitemap.xml

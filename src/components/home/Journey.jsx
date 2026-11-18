@@ -8,6 +8,7 @@
 import { useState } from "react";
 import { aboutUrl, journeyFacts, journeyMilestones } from "../../data/siteContent";
 import sharkTankThumb from "../../assets/funngro/sharktank-thumb-CRRYxI2z.jpg";
+import { PageLoader } from "../Loader";
 import {
   ArrowUpRight,
   Crown,
@@ -28,6 +29,7 @@ const milestoneIcons = {
 
 export default function Journey() {
   const [isPlayingSharkTank, setIsPlayingSharkTank] = useState(false);
+  const [isVideoReady, setIsVideoReady] = useState(false);
 
   return (
     <section className="journey" id="about" aria-labelledby="journey-title">
@@ -164,17 +166,28 @@ export default function Journey() {
                         <div className="journey-proof__media">
                           {isPlayingSharkTank ? (
                             <div className="journey-proof__player">
+                              {/* Show branded compact loader until YouTube finishes buffering */}
+                              {!isVideoReady ? (
+                                <PageLoader
+                                  variant="compact"
+                                  label="Loading Shark Tank pitch…"
+                                />
+                              ) : null}
                               <iframe
                                 className="journey-proof__iframe"
                                 src="https://www.youtube-nocookie.com/embed/sGysgwm02YY?autoplay=1&rel=0"
                                 title="Funngro on Shark Tank India Season 2 — Full Pitch"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen
+                                onLoad={() => setIsVideoReady(true)}
                               />
                               <button
                                 type="button"
                                 className="journey-proof__close-btn"
-                                onClick={() => setIsPlayingSharkTank(false)}
+                                onClick={() => {
+                                  setIsPlayingSharkTank(false);
+                                  setIsVideoReady(false);
+                                }}
                                 aria-label="Close video"
                               >
                                 ✕ Close
@@ -184,7 +197,10 @@ export default function Journey() {
                             <button
                               type="button"
                               className="journey-proof__thumb-btn"
-                              onClick={() => setIsPlayingSharkTank(true)}
+                              onClick={() => {
+                                setIsVideoReady(false);
+                                setIsPlayingSharkTank(true);
+                              }}
                               aria-label="Play Funngro Shark Tank India full pitch"
                             >
                               <img
