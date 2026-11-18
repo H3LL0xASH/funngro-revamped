@@ -1,0 +1,1134 @@
+/* ==========================================================================
+   APP SHOWCASE — Five screens. One uninterrupted journey.
+   Matches Desktop (3-col + pedestal + step rail) & Mobile (pinned stacked)
+   Mockup: media_1794942336431_708ed468
+   ========================================================================== */
+
+.app-showcase {
+  position: relative;
+  background: radial-gradient(
+    ellipse 85% 75% at 50% 48%,
+    #0c331c 0%,
+    #071f11 55%,
+    #04130a 100%
+  );
+  color: #ffffff;
+  overflow: clip;
+}
+
+/* Soft corner glow shapes (pre-feathered radial gradients — no heavy CSS blur filter) */
+.app-showcase__corner-top {
+  position: absolute;
+  top: -7rem;
+  left: -8rem;
+  width: 26rem;
+  height: 22rem;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 60% 58%,
+    rgb(198 244 94 / 0.24) 0%,
+    rgb(34 197 94 / 0.12) 42%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app-showcase__corner-bottom {
+  position: absolute;
+  right: -6rem;
+  bottom: -6rem;
+  width: 26rem;
+  height: 20rem;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 40% 42%,
+    rgb(198 244 94 / 0.2) 0%,
+    rgb(22 163 74 / 0.12) 45%,
+    transparent 72%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Pinned Viewport Wrapper (Locked strictly to 100dvh during scroll scrub)
+   -------------------------------------------------------------------------- */
+.app-showcase__pin {
+  position: relative;
+  z-index: 1;
+  contain: layout paint;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding-top: calc(var(--header-height, 74px) + clamp(0.6rem, 1.6vh, 1.25rem));
+  padding-bottom: clamp(1rem, 2.2vh, 1.65rem);
+  box-sizing: border-box;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.app-showcase__container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 82rem;
+  margin-inline: auto;
+  width: 100%;
+  min-height: 0;
+  justify-content: space-between;
+}
+
+/* --------------------------------------------------------------------------
+   Desktop Bottom Progress Line + Screen Counter (01 of 05)
+   -------------------------------------------------------------------------- */
+.app-bottom-bar {
+  flex: none;
+  width: 100%;
+  padding-top: clamp(0.35rem, 0.9vh, 0.7rem);
+}
+
+.app-bottom-bar__track {
+  width: 100%;
+  height: 3.5px;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.14);
+  overflow: hidden;
+}
+
+.app-bottom-bar__fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #22c55e, #c6f45e);
+  box-shadow: 0 0 12px rgb(198 244 94 / 0.65);
+  transition: width 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.app-bottom-bar__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.45rem;
+}
+
+.app-bottom-bar__count {
+  color: rgb(230 245 234 / 0.78);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.app-bottom-bar__active {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.24rem 0.78rem;
+  border-radius: 999px;
+  background: rgb(8 30 17 / 0.84);
+  border: 1px solid rgb(198 244 94 / 0.3);
+  color: #e6fcd9;
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.app-bottom-bar__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c6f45e;
+  box-shadow: 0 0 8px #c6f45e;
+}
+
+/* Shared segmented progress primitives for Mobile */
+.app-progress-pill__segments {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+}
+
+.app-progress-seg {
+  display: block;
+  width: clamp(22px, 2.4vw, 34px);
+  height: 4px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.2);
+  transition: background-color 280ms ease, transform 240ms ease, box-shadow 280ms ease;
+}
+
+.app-progress-seg.is-done {
+  background: rgb(198 244 94 / 0.52);
+}
+
+.app-progress-seg.is-active {
+  background: #c6f45e;
+  box-shadow: 0 0 10px rgb(198 244 94 / 0.7);
+  transform: scaleY(1.25);
+}
+
+.app-progress-pill__label {
+  color: rgb(255 255 255 / 0.85);
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Main 3-Column Desktop Grid (Left Copy · Center Phone · Right Step Rail)
+   -------------------------------------------------------------------------- */
+.app-showcase__stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.88fr) minmax(0, 1.04fr);
+  align-items: center;
+  gap: clamp(1.3rem, 2.8vw, 2.75rem);
+  flex: 1;
+  min-height: 0;
+  padding-top: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Column 1: Static Header + Masked Bottom-to-Up Dynamic Text + Pills + Stores
+   -------------------------------------------------------------------------- */
+.app-showcase__left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+}
+
+.app-showcase__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.24rem 0.85rem;
+  border-radius: 999px;
+  background: rgb(22 163 74 / 0.16);
+  border: 1px solid rgb(198 244 94 / 0.34);
+  color: #e6fcd9;
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.app-showcase__pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c6f45e;
+  box-shadow: 0 0 8px #c6f45e;
+}
+
+.app-showcase__title {
+  margin: 0.65rem 0 0;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.1vw, 2.85rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.app-showcase__title .accent {
+  color: #c6f45e;
+}
+
+.app-showcase__journey-word {
+  position: relative;
+  display: inline-block;
+}
+
+.app-showcase__brush {
+  position: absolute;
+  left: 102%;
+  bottom: 0.14em;
+  width: clamp(5.5rem, 8.5vw, 8.5rem);
+  height: 12px;
+  pointer-events: none;
+}
+
+/* Fixed-Height Masked Text Viewport (ONLY text animates bottom-to-up) */
+.app-text-stage {
+  position: relative;
+  width: 100%;
+  height: clamp(7rem, 14.5vh, 8.4rem);
+  margin-top: clamp(0.75rem, 1.6vh, 1.15rem);
+  overflow: hidden;
+}
+
+.app-text-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  pointer-events: none;
+  will-change: transform, opacity;
+  transition:
+    transform 460ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 360ms ease;
+}
+
+/* Upcoming slides wait below; active sits at 0; passed slides exit smoothly upward */
+.app-text-slide.is-upcoming {
+  opacity: 0;
+  transform: translate3d(0, 70%, 0);
+}
+
+.app-text-slide.is-active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  pointer-events: auto;
+}
+
+.app-text-slide.is-past {
+  opacity: 0;
+  transform: translate3d(0, -65%, 0);
+}
+
+.app-text-slide__title {
+  margin: 0;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: clamp(1.12rem, 1.55vw, 1.38rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.22;
+}
+
+.app-text-slide__body {
+  margin: 0.42rem 0 0;
+  color: rgb(230 245 234 / 0.8);
+  font-family: var(--font-body);
+  font-size: clamp(0.86rem, 1.06vw, 0.96rem);
+  line-height: 1.54;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 3 Feature Highlight Pills */
+.app-feature-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.52rem;
+  margin-top: clamp(0.65rem, 1.3vh, 1rem);
+}
+
+.app-feature-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  padding: 0.42rem 0.8rem;
+  border-radius: 999px;
+  background: rgb(14 42 25 / 0.78);
+  border: 1px solid rgb(198 244 94 / 0.24);
+  color: #edf9f0;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.app-feature-chip__icon {
+  display: grid;
+  place-items: center;
+  color: #c6f45e;
+  flex: none;
+}
+
+/* Store Download Buttons & Play Store Rating */
+.app-showcase__foot {
+  display: flex;
+  flex-direction: column;
+  gap: 0.58rem;
+  margin-top: clamp(0.75rem, 1.6vh, 1.2rem);
+}
+
+.app-showcase__stores {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.app-store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.52rem;
+  border: 1px solid rgb(255 255 255 / 0.2);
+  border-radius: 11px;
+  background: rgb(255 255 255 / 0.06);
+  padding: 0.4rem 0.88rem;
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 180ms ease;
+}
+
+.app-store-btn:hover {
+  border-color: #c6f45e;
+  background: rgb(198 244 94 / 0.14);
+  transform: translateY(-2px);
+}
+
+.app-store-btn__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.12;
+}
+
+.app-store-btn__text small {
+  color: rgb(255 255 255 / 0.6);
+  font-size: 0.54rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.app-store-btn__text b {
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.app-showcase__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  margin: 0;
+  color: rgb(230 245 234 / 0.72);
+  font-size: 0.74rem;
+}
+
+.app-showcase__rating b {
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   Column 2: Center Static Smartphone Frame + Glowing 3D Emerald Pedestal
+   -------------------------------------------------------------------------- */
+.app-showcase__center {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+
+.app-showcase__glow {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgb(198 244 94 / 0.2) 0%,
+    rgb(22 163 74 / 0.14) 38%,
+    transparent 68%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Static Smartphone Frame (Slightly enlarged, still fits strictly in 100dvh) */
+.showcase-phone {
+  position: relative;
+  z-index: 2;
+  height: clamp(390px, 62vh, 560px);
+  aspect-ratio: 9 / 16.4;
+  width: auto;
+  border-radius: 38px;
+  background: #06140c;
+  border: 4px solid #1b3425;
+  box-shadow:
+    0 24px 58px -12px rgb(0 0 0 / 0.85),
+    0 0 0 1px rgb(255 255 255 / 0.16),
+    0 0 42px rgb(22 163 74 / 0.22);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.showcase-phone__island {
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 16px;
+  border-radius: 999px;
+  background: #000000;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 7px;
+}
+
+.showcase-phone__lens {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0d1e15;
+  box-shadow: inset 0 0 2px rgb(74 222 128 / 0.55);
+}
+
+.showcase-phone__screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #05140b;
+}
+
+/* Smooth GPU-accelerated vertical glide + crossfade inside static phone */
+.app-screen {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  will-change: transform, opacity;
+  transition:
+    transform 460ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 380ms ease;
+}
+
+.app-screen.is-upcoming {
+  opacity: 0;
+  transform: translate3d(0, 7%, 0) scale(0.985);
+  z-index: 1;
+}
+
+.app-screen.is-active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  z-index: 3;
+  pointer-events: auto;
+}
+
+.app-screen.is-past {
+  opacity: 0;
+  transform: translate3d(0, -5%, 0) scale(0.985);
+  z-index: 2;
+}
+
+.showcase-phone__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* Preserve full horizontal readability on wider 2:3 screen captures */
+.showcase-phone__img--contain {
+  object-fit: contain;
+  object-position: center;
+  background: #07190f;
+}
+
+.showcase-phone__shine {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgb(255 255 255 / 0.1) 0%,
+    transparent 38%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Glowing 3D Emerald Pedestal beneath the phone */
+.app-pedestal {
+  position: relative;
+  z-index: 1;
+  width: clamp(240px, 24vw, 320px);
+  height: 36px;
+  margin-top: -12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-pedestal__top {
+  width: 100%;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    #e5ff8a 0%,
+    #4ade80 50%,
+    #15803d 100%
+  );
+  box-shadow:
+    0 0 28px rgb(198 244 94 / 0.65),
+    0 6px 18px rgb(22 163 74 / 0.55);
+  z-index: 2;
+}
+
+.app-pedestal__base {
+  width: 96%;
+  height: 22px;
+  margin-top: -8px;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  background: linear-gradient(
+    180deg,
+    #1a783e 0%,
+    #0b361c 70%,
+    transparent 100%
+  );
+  box-shadow: 0 16px 32px -4px rgb(22 163 74 / 0.62);
+}
+
+/* --------------------------------------------------------------------------
+   Column 3: Right Vertical 5-Step Highlight Rail (Desktop)
+   -------------------------------------------------------------------------- */
+.app-steps-rail {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 1.1vh, 0.78rem);
+  padding-left: 1.45rem;
+}
+
+/* Thin vertical guide line on left of cards */
+.app-steps-rail__line {
+  position: absolute;
+  top: 2.1rem;
+  bottom: 2.1rem;
+  left: 0.45rem;
+  width: 1.5px;
+  background: linear-gradient(
+    180deg,
+    rgb(198 244 94 / 0.55) 0%,
+    rgb(74 222 128 / 0.35) 50%,
+    rgb(198 244 94 / 0.16) 100%
+  );
+  pointer-events: none;
+}
+
+.app-step-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  padding: clamp(0.75rem, 1.45vh, 1.05rem) 1.1rem;
+  border-radius: 18px;
+  border: 1px solid rgb(198 244 94 / 0.16);
+  background: rgb(11 36 21 / 0.86);
+  color: #ffffff;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color 260ms ease,
+    border-color 240ms ease,
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 200ms ease;
+}
+
+/* Small connector stem + dot linking card to vertical guide line */
+.app-step-card__node {
+  position: absolute;
+  top: 50%;
+  left: -1.04rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #17462b;
+  border: 1.5px solid rgb(198 244 94 / 0.4);
+  transform: translate(-50%, -50%);
+  transition: all 280ms ease;
+}
+
+.app-step-card__node::after {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 10px;
+  height: 1.5px;
+  background: rgb(198 244 94 / 0.32);
+  transform: translateY(-50%);
+  content: "";
+  transition: background-color 280ms ease;
+}
+
+.app-step-card:hover {
+  border-color: rgb(198 244 94 / 0.45);
+  background: rgb(18 52 31 / 0.9);
+  transform: translateX(3px);
+}
+
+/* Active Highlighted Step Card (Electric Lime Pill Card) */
+.app-step-card.is-active {
+  background: linear-gradient(135deg, #ddff7a 0%, #c6f45e 58%, #ace841 100%);
+  border-color: #e6ff9e;
+  color: #071e10;
+  transform: translateX(4px) scale(1.015);
+  box-shadow:
+    0 14px 32px -8px rgb(198 244 94 / 0.48),
+    0 0 0 1px rgb(255 255 255 / 0.28) inset;
+}
+
+.app-step-card.is-active .app-step-card__node {
+  width: 10px;
+  height: 10px;
+  background: #c6f45e;
+  border-color: #ffffff;
+  box-shadow: 0 0 12px #c6f45e;
+}
+
+.app-step-card.is-active .app-step-card__node::after {
+  background: #c6f45e;
+}
+
+.app-step-card__num {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex: none;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.08);
+  border: 1px solid rgb(198 244 94 / 0.25);
+  color: #d9f99d;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 800;
+  transition: all 260ms ease;
+}
+
+.app-step-card.is-active .app-step-card__num {
+  background: #0d2b19;
+  border-color: #0d2b19;
+  color: #c6f45e;
+}
+
+.app-step-card__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  color: #c6f45e;
+  transition: color 240ms ease;
+}
+
+.app-step-card.is-active .app-step-card__icon {
+  color: #082012;
+}
+
+.app-step-card__meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.app-step-card__title {
+  color: inherit;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.app-step-card__desc {
+  margin-top: 0.16rem;
+  color: rgb(224 242 230 / 0.76);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  line-height: 1.32;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.app-step-card.is-active .app-step-card__desc {
+  color: #164026;
+  font-weight: 600;
+}
+
+/* Mobile-only dock hidden on desktop */
+.app-mobile-dock {
+  display: none;
+}
+
+/* ==========================================================================
+   MOBILE & TABLET PINNED LAYOUT (< 960px)
+   Matches Mobile View (≤ 768px) of Reference Mockup:
+   Pinned 100dvh viewport where ONLY top text, phone image, progress bar,
+   and bottom lime step card smoothly animate in order on scroll!
+   ========================================================================== */
+@media (max-width: 959px) {
+  .app-showcase__pin {
+    padding-top: calc(var(--header-height, 66px) + 0.4rem);
+    padding-bottom: 0.5rem;
+  }
+
+  .app-bottom-bar,
+  .app-steps-rail,
+  .app-pedestal {
+    display: none;
+  }
+
+  .app-showcase__stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.45rem, 1.7dvh, 1.15rem);
+    padding-top: 0;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .app-showcase__left {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 28rem;
+    flex: none;
+  }
+
+  .app-showcase__pill {
+    padding: 0.18rem 0.7rem;
+    font-size: 0.66rem;
+  }
+
+  .app-showcase__title {
+    margin-top: 0.35rem;
+    font-size: clamp(1.22rem, 5.2vw, 1.65rem);
+    line-height: 1.08;
+  }
+
+  .app-showcase__title br:nth-of-type(2) {
+    display: none;
+  }
+
+  .app-showcase__journey-word {
+    margin-left: 0.25em;
+  }
+
+  .app-showcase__brush {
+    left: 0;
+    bottom: -0.22rem;
+    width: 100%;
+    height: 8px;
+  }
+
+  /* Compact fixed masked dynamic text slot on mobile */
+  .app-text-stage {
+    height: clamp(4.1rem, 9.2dvh, 4.9rem);
+    margin-top: 0.42rem;
+  }
+
+  .app-text-slide {
+    align-items: center;
+    text-align: center;
+  }
+
+  .app-text-slide__title {
+    font-size: clamp(0.84rem, 3.6vw, 0.96rem);
+  }
+
+  .app-text-slide__body {
+    margin-top: 0.18rem;
+    font-size: clamp(0.68rem, 2.9vw, 0.76rem);
+    line-height: 1.38;
+    -webkit-line-clamp: 2;
+  }
+
+  /* 3 compact pills in one row */
+  .app-feature-row {
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 0.3rem;
+    margin-top: 0.35rem;
+    width: 100%;
+  }
+
+  .app-feature-chip {
+    padding: 0.24rem 0.48rem;
+    font-size: 0.62rem;
+    gap: 0.26rem;
+  }
+
+  .app-feature-chip__icon svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Compact Store Buttons + Rating Row */
+  .app-showcase__foot {
+    align-items: center;
+    gap: 0.28rem;
+    margin-top: 0.38rem;
+  }
+
+  .app-showcase__stores {
+    justify-content: center;
+    gap: 0.45rem;
+  }
+
+  .app-store-btn {
+    padding: 0.28rem 0.62rem;
+    border-radius: 9px;
+    gap: 0.38rem;
+  }
+
+  .app-store-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .app-store-btn__text small {
+    font-size: 0.46rem;
+  }
+
+  .app-store-btn__text b {
+    font-size: 0.68rem;
+  }
+
+  .app-showcase__rating {
+    font-size: 0.63rem;
+  }
+
+  /* Center Phone: sizes generously without leaving blank gaps on tall phones or iPads */
+  .app-showcase__center {
+    flex: 0 1 auto;
+    min-height: 0;
+    width: 100%;
+    padding-block: 0.1rem;
+  }
+
+  .app-showcase__glow {
+    width: 220px;
+    height: 220px;
+  }
+
+  .showcase-phone {
+    height: clamp(225px, 41dvh, 430px);
+    max-height: 44dvh;
+    aspect-ratio: 9 / 16.4;
+    width: auto;
+    border-radius: 26px;
+    border-width: 3px;
+  }
+
+  .showcase-phone__screen {
+    border-radius: 22px;
+  }
+
+  .showcase-phone__island {
+    width: 48px;
+    height: 12px;
+    top: 5px;
+    padding-right: 5px;
+  }
+
+  .showcase-phone__lens {
+    width: 4px;
+    height: 4px;
+  }
+
+  /* Mobile Bottom Dock (Segmented bar + < Lime Card > + Dots) */
+  .app-mobile-dock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.42rem;
+    width: 100%;
+    max-width: 23rem;
+    flex: none;
+  }
+
+  .app-mobile-progress {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.65rem;
+    width: 100%;
+    padding-inline: 0.25rem;
+  }
+
+  .app-mobile-progress .app-progress-pill__segments {
+    flex: 1;
+    gap: 0.25rem;
+  }
+
+  .app-mobile-progress .app-progress-seg {
+    flex: 1;
+    width: auto;
+    height: 3.5px;
+  }
+
+  .app-mobile-progress .app-progress-pill__label {
+    font-size: 0.66rem;
+    color: rgb(230 245 234 / 0.8);
+  }
+
+  .app-mobile-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.48rem;
+    width: 100%;
+  }
+
+  .app-mobile-arrow {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    flex: none;
+    border-radius: 50%;
+    border: 1px solid rgb(198 244 94 / 0.28);
+    background: rgb(11 36 21 / 0.85);
+    color: #c6f45e;
+    cursor: pointer;
+    transition: all 180ms ease;
+  }
+
+  .app-mobile-arrow:hover:not(:disabled) {
+    background: #c6f45e;
+    color: #071e10;
+  }
+
+  .app-mobile-arrow:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  /* Masked bottom-to-up active lime highlight card */
+  .app-mobile-card-stage {
+    position: relative;
+    flex: 1;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #ddff7a 0%, #c6f45e 60%, #ace841 100%);
+    box-shadow: 0 10px 24px -8px rgb(198 244 94 / 0.5);
+  }
+
+  .app-mobile-card {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0 0.85rem;
+    color: #071e10;
+    will-change: transform, opacity;
+    transition:
+      transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 320ms ease;
+  }
+
+  .app-mobile-card.is-upcoming {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  .app-mobile-card.is-active {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .app-mobile-card.is-past {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  .app-mobile-card__icon {
+    display: grid;
+    place-items: center;
+    flex: none;
+    color: #071e10;
+  }
+
+  .app-mobile-card__text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    text-align: left;
+  }
+
+  .app-mobile-card__text strong {
+    font-family: var(--font-display);
+    font-size: 0.84rem;
+    font-weight: 800;
+    line-height: 1.15;
+  }
+
+  .app-mobile-card__text small {
+    color: #164026;
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 600;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .app-mobile-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.15rem;
+  }
+
+  /* 24x24px accessible touch target wrapping a clean visual pill */
+  .app-mobile-dot {
+    display: inline-grid;
+    place-items: center;
+    min-width: 24px;
+    min-height: 24px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .app-mobile-dot::after {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.28);
+    content: "";
+    transition: transform 220ms ease, opacity 220ms ease;
+  }
+
+  .app-mobile-dot.is-active::after {
+    width: 16px;
+    background: #c6f45e;
+  }
+}
+
+/* Extra-short mobile viewports (e.g. iPhone SE 667px height) */
+@media (max-width: 959px) and (max-height: 700px) {
+  .app-showcase__rating {
+    display: none;
+  }
+
+  .app-text-stage {
+    height: 3.7rem;
+  }
+
+  .app-mobile-card-stage {
+    height: 48px;
+  }
+}

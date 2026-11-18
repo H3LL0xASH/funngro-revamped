@@ -1,0 +1,23 @@
+# Funngro Full Machine-Readable Knowledge Base
+
+## Overview
+Funngro is India's premier youth freelance and micro-opportunity platform connecting teens and young adults (ages 14-25) with top domestic and global brands. The platform empowers the next generation to gain real commercial experience, complete briefs, and earn their first independent income safely.
+
+## Key Features & Value Propositions
+1. Brand Campaigns: Direct promotional tasks from reputable enterprises.
+2. Content Creation: User-generated content (UGC), short videos, product reviews, and blog articles.
+3. Referrals: Curated app and service referrals with verified payouts upon milestone completion.
+4. Micro-surveys: Consumer feedback and product research for recognized brands like Nielsen and Toluna.
+5. SheLancer Community: A dedicated, moderated space specifically built for women and girls to earn with women-focused brand briefs and safe, supportive networks.
+6. Transparent UPI Payments: Earnings are credited directly to UPI handles or bank accounts with zero platform deductions.
+
+## Company Background
+- Founders: Payal Jain (CEO) and Anik Jain (CFO)
+- Founded: FY22 in Mumbai, India
+- Shark Tank India: Featured on Shark Tank India Season 2, receiving investment backing from Amit Jain via SucSEED Indovation.
+- Growth: Grew organically from MVP to over 7 million (70 Lakh) registered users and 5,000+ brands.
+
+## Technical & Agentic Accessibility
+- Primary Domain: https://www.funngro.com/
+- Mobile Applications: Available on Google Play Store and Apple App Store.
+- Discoverability: ARD / WebMCP compliant agent manifest at /.well-known/ai-catalog.json.

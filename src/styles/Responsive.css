@@ -1,0 +1,44 @@
+/* ---------------------------------------------------------------------------
+   Global responsive and motion safeguards.
+   Component breakpoints stay inside each component stylesheet.
+--------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .btn-outline {
+    border-color: var(--color-forest);
+  }
+
+  .text-link {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+}
+
+@media print {
+  .site-header,
+  .site-footer,
+  .hero__art,
+  .skip-link {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}

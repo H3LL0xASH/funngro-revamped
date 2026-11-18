@@ -1,0 +1,625 @@
+/* ==========================================================================
+   GREENISH FOREST DARK THEME (`[data-theme="dark"]`)
+   Botanical emerald-sage palette — deliberately NOT pitch black or cold gray.
+   Overrides root tokens and component surfaces consistently across all
+   11 sections of the Funngro landing page.
+   ========================================================================== */
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Core botanical forest surfaces */
+  --color-cream: #0c2317;
+  --color-mist: #112d1e;
+  --color-mist-wash: rgb(19 50 33 / 0.56);
+  --color-paper: #153624;
+  --color-line: rgb(198 244 94 / 0.16);
+
+  /* High-contrast mint-tinted typography */
+  --color-ink: #effaf2;
+  --color-muted: #a9cab4;
+
+  /* Funngro signature greens & lime accents */
+  --color-forest: #081c11;
+  --color-forest-2: #123622;
+  --color-brand: #4ade80;
+  --color-brand-dark: #16a34a;
+  --color-accent: #c6f45e;
+  --color-accent-soft: rgb(198 244 94 / 0.16);
+
+  /* Deep emerald elevation shadows */
+  --shadow-soft: 0 18px 42px -24px rgb(2 12 6 / 0.72);
+  --shadow-card: 0 22px 50px -26px rgb(2 12 6 / 0.78);
+  --shadow-float: 0 18px 38px -18px rgb(2 12 6 / 0.75);
+}
+
+/* Fixed GPU-cached botanical dark forest glow (prevents full-page repaint on scroll/FAQ) */
+:root[data-theme="dark"] body::before {
+  background-color: #0c2317;
+  background-image:
+    radial-gradient(circle at 10% 12%, rgb(198 244 94 / 0.1) 0%, transparent 38%),
+    radial-gradient(circle at 90% 35%, rgb(34 197 94 / 0.11) 0%, transparent 36%),
+    radial-gradient(circle at 18% 88%, rgb(198 244 94 / 0.08) 0%, transparent 40%);
+}
+
+/* --------------------------------------------------------------------------
+   Global Primitives (Buttons, Eyebrows, Links)
+   -------------------------------------------------------------------------- */
+:root[data-theme="dark"] .eyebrow {
+  color: #c6f45e;
+}
+
+:root[data-theme="dark"] .btn-primary {
+  border-color: #22c55e;
+  background: #16a34a;
+  color: #ffffff;
+  box-shadow: 0 12px 26px -12px rgb(34 197 94 / 0.55);
+}
+
+:root[data-theme="dark"] .btn-primary:hover {
+  border-color: #4ade80;
+  background: #15803d;
+}
+
+:root[data-theme="dark"] .btn-outline {
+  border-color: rgb(198 244 94 / 0.24);
+  background: #153624;
+  color: #effaf2;
+}
+
+:root[data-theme="dark"] .btn-outline:hover {
+  border-color: #c6f45e;
+  background: #1b442e;
+}
+
+:root[data-theme="dark"] .text-link {
+  color: #c6f45e;
+}
+
+:root[data-theme="dark"] .text-link:hover {
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   1. Navigation Bar & Theme Switcher
+   -------------------------------------------------------------------------- */
+:root[data-theme="dark"] .site-header {
+  background: rgb(12 35 23 / 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom-color: rgb(198 244 94 / 0.14);
+}
+
+:root[data-theme="dark"] .site-header.is-scrolled {
+  background: rgb(10 29 19 / 0.96);
+  box-shadow: 0 10px 28px -18px rgb(2 12 6 / 0.85);
+}
+
+:root[data-theme="dark"] .nav-panel {
+  background: #0c2317;
+  box-shadow: 0 24px 40px -22px rgb(2 10 5 / 0.85);
+}
+
+@media (min-width: 1024px) {
+  :root[data-theme="dark"] .nav-panel {
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
+:root[data-theme="dark"] .nav-link__star {
+  color: #c6f45e;
+}
+
+:root[data-theme="dark"] .nav-link.is-active .nav-link__star {
+  color: #081c11;
+}
+
+:root[data-theme="dark"] .nav-link:hover {
+  background: rgb(198 244 94 / 0.1);
+  color: #effaf2;
+}
+
+:root[data-theme="dark"] .nav-link.is-active {
+  background: #c6f45e;
+  color: #081c11;
+}
+
+:root[data-theme="dark"] .nav-signup {
+  border-color: #c6f45e;
+  background: #c6f45e;
+  color: #081c11;
+  box-shadow: 0 8px 22px -10px rgb(198 244 94 / 0.55);
+}
+
+:root[data-theme="dark"] .nav-signup:hover {
+  border-color: #d9f99d;
+  background: #d9f99d;
+}
+
+:root[data-theme="dark"] .theme-toggle {
+  border-color: rgb(198 244 94 / 0.28);
+  background: #153624;
+  color: #c6f45e;
+  box-shadow: 0 4px 14px -4px rgb(2 12 6 / 0.65);
+}
+
+:root[data-theme="dark"] .theme-toggle:hover {
+  border-color: #c6f45e;
+  background: #1d4931;
+  color: #e4ff9e;
+}
+
+:root[data-theme="dark"] .nav-toggle {
+  border-color: rgb(198 244 94 / 0.22);
+  background: #153624;
+  color: #effaf2;
+}
+
+/* --------------------------------------------------------------------------
+   2. Hero Section
+   -------------------------------------------------------------------------- */
+:root[data-theme="dark"] .hero::before {
+  background: radial-gradient(circle, rgb(198 244 94 / 0.14), transparent 68%);
+}
+
+:root[data-theme="dark"] .hero__tagline {
+  border-color: rgb(198 244 94 / 0.22);
+  background: rgb(21 54 36 / 0.88);
+  color: #d9f99d;
+  box-shadow: 0 4px 14px -4px rgb(2 12 6 / 0.55);
+}
+
+:root[data-theme="dark"] .hero__mark {
+  color: #081c11;
+}
+
+:root[data-theme="dark"] .hero__proof-item {
+  border-color: rgb(198 244 94 / 0.16);
+  background: rgb(21 54 36 / 0.84);
+  box-shadow: 0 6px 16px -6px rgb(2 12 6 / 0.55);
+}
+
+:root[data-theme="dark"] .hero__proof-icon {
+  background: rgb(198 244 94 / 0.16);
+  color: #c6f45e;
+}
+
+:root[data-theme="dark"] .hero__ring {
+  border-color: rgb(198 244 94 / 0.22);
+}
+
+:root[data-theme="dark"] .hero__photo {
+  filter: drop-shadow(0 18px 28px rgb(2 12 6 / 0.52));
+}
+
+:root[data-theme="dark"] .hero-chip {
+  border-color: rgb(198 244 94 / 0.22);
+  background: #153624;
+  color: #effaf2;
+  box-shadow: 0 10px 24px -10px rgb(2 12 6 / 0.72);
+}
+
+:root[data-theme="dark"] .hero-chip--content {
+  border-color: #c6f45e;
+  background: #c6f45e;
+  color: #081c11;
+}
+
+:root[data-theme="dark"] .hero-chip--content .hero-chip__icon--lime {
+  background: #081c11;
+  color: #c6f45e;
+}
+
+:root[data-theme="dark"] .hero__sparkle {
+  color: #c6f45e;
+}
+
+/* --------------------------------------------------------------------------
+   3. Brands Strip & Marquee
+   -------------------------------------------------------------------------- */
+:root[data-theme="dark"] .brands::before {
+  background: radial-gradient(circle, rgb(74 222 128 / 0.12), transparent 70%);
+}
+
+:root[data-theme="dark"] .brands-head__highlight {
+  color: #c6f45e;
+}
+
+:root[data-theme="dark"] .brands-badge {
+  border: 1px solid rgb(198 244 94 / 0.18);
+  background: #153624;
+  color: #effaf2;
+  box-shadow: 0 6px 16px -6px rgb(2 12 6 / 0.55);
+}
+
+:root[data-theme="dark"] .brands-showcase {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+:root[data-theme="dark"] .brand-card {
+  border: 1px solid rgb(198 244 94 / 0.12);
+  background: #163b27;
+  box-shadow: 0 6px 18px -8px rgb(2 12 6 / 0.65);
+}
+
+:root[data-theme="dark"] .brand-card:hover {
+  border-color: rgb(198 244 94 / 0.35);
+  background: #1a452e;
+  box-shadow: 0 14px 28px -8px rgb(2 12 6 / 0.8);
+}
+
+:root[data-theme="dark"] .brands-stats-banner {
+  background: linear-gradient(135deg, #165e36 0%, #114b2b 55%, #0d3b22 100%);
+  border: 1px solid rgb(198 244 94 / 0.24);
+  box-shadow: 0 16px 36px -10px rgb(2 12 6 / 0.72);
+}
+
+/* --------------------------------------------------------------------------
+   4. How Funngro Works (Scroll Step Deck + Trust Strip)
+   -------------------------------------------------------------------------- */
+:root[data-theme="dark"] .hiw {
+  background: transparent;
+}
+
+:root[data-theme="dark"] .hiw-head__eyebrow,
+:root[data-theme="dark"] .hiw-head__highlight {
+  color: #c6f45e;
+}
+
+:root[data-theme="dark"] .hiw-head__dot {
+  background: #4ade80;
+  box-shadow: 0 0 0 3px rgb(74 222 128 / 0.3);
+}
+
+:root[data-theme="dark"] .hiw-cat-pill {
+  background: #153624;
+  box-shadow: 0 6px 16px -4px rgb(2 12 6 / 0.55);
+}
+
+:root[data-theme="dark"] .hiw-cat-pill:hover,
+:root[data-theme="dark"] .hiw-cat-pill.is-active {
+  background: #1c4730;
+  box-shadow: 0 8px 20px -4px rgb(198 244 94 / 0.25);
+}
+
+:root[data-theme="dark"] .hiw-card {
+  background: linear-gradient(
+    155deg,
+    rgb(22 58 38 / 0.88) 0%,
+    rgb(15 41 27 / 0.78) 100%
+  );
+  border-color: rgb(198 244 94 / 0.16);
+  box-shadow: 0 20px 44px -14px rgb(2 12 6 / 0.78);
+}
+
+:root[data-theme="dark"] .hiw-card.is-current {
+  box-shadow:
+    0 24px 52px -14px rgb(2 12 6 / 0.85),
+    0 0 0 1.5px rgb(198 244 94 / 0.42);
+}
+
+:root[data-theme="dark"] .hiw-card__bg {
+  filter: invert(1) hue-rotate(180deg) saturate(1.45);
+  mix-blend-mode: screen;
+  opacity: 0.26;
+}
+
+:root[data-theme="dark"] .hiw-card:hover .hiw-card__bg {
+  opacity: 0.36;
+}
+
+:root[data-theme="dark"] .hiw-card__badge {
+  background: rgb(198 244 94 / 0.16);
+  color: #c6f45e;
+}
+
+:root[data-theme="dark"] .hiw-card.is-current .hiw-card__badge {
+  background: #c6f45e;
+  color: #081c11;
+}
+
+:root[data-theme="dark"] .hiw-bullet-check {
+  background: #c6f45e;
+  color: #081c11;
+}
+
+:root[data-theme="dark"] .hiw-mini-tile {
+  background: rgb(12 35 23 / 0.78);
+  box-shadow: 0 8px 18px -10px rgb(2 12 6 / 0.7);
+}
+
+:root[data-theme="dark"] .hiw-dot::after {
+  background: rgb(198 244 94 / 0.35);
+}
+
+:root[data-theme="dark"] .hiw-dot.is-active::after {
+  background: #c6f45e;
+}
+
+:root[data-theme="dark"] .hiw-trust-strip {
+  background: rgb(21 54 36 / 0.88);
+  box-shadow: 0 14px 34px -10px rgb(2 12 6 / 0.72);
+}
+
+:root[data-theme="dark"] .hiw-trust-item {
+  color: #dcf2e3;
+}
+
+:root[data-theme="dark"] .hiw-trust-item--highlight {
+  color: #c6f45e;
+}
+
+:root[data-theme="dark"] .hiw-trust-icon {
+  color: #4ade80;
+}
+
+:root[data-theme="dark"] .hiw-trust-icon--glow {
+  background: rgb(198 244 94 / 0.16);
+  color: #c6f45e;
+  box-shadow: 0 0 0 3px rgb(198 244 94 / 0.2);
+}
+
+:root[data-theme="dark"] .hiw-trust-sublabel {
+  color: #a9cab4;
+}
+
+/* --------------------------------------------------------------------------
+   5. SheLancer Section
+   -------------------------------------------------------------------------- */
+:root[data-theme="dark"] .shelancers__panel {
+  border-color: rgb(198 244 94 / 0.18);
+  background: #153624;
+}
+
+:root[data-theme="dark"] .shelancers__photo {
+  background: #0d2618;
+}
+
+:root[data-theme="dark"] .shelancers__name {
+  border: 1px solid rgb(198 244 94 / 0.22);
+  background: #0c2317;
+}
+
+:root[data-theme="dark"] .shelancers__name b {
+  color: #effaf2;
+}
+
+:root[data-theme="dark"] .shelancers__sparkle {
+  color: #c6f45e;
+}
+
+:root[data-theme="dark"] .shelancers__benefit-icon {
+  background: rgb(198 244 94 / 0.15);
+  color: #c6f45e;
+}
+
+/* --------------------------------------------------------------------------
+   6. App Showcase (Frame separation on dark emerald canvas)
+   -------------------------------------------------------------------------- */
+:root[data-theme="dark"] .app-showcase {
+  border-block: 1px solid rgb(198 244 94 / 0.12);
+}
+
+/* --------------------------------------------------------------------------
+   7. Earner Stories Carousel
+   -------------------------------------------------------------------------- */
+:root[data-theme="dark"] .stories {
+  background: transparent;
+}
+
+:root[data-theme="dark"] .stories__eyebrow,
+:root[data-theme="dark"] .stories__highlight,
+:root[data-theme="dark"] .stories__all-link {
+  color: #4ade80;
+}
+
+:root[data-theme="dark"] .stories__all-link:hover {
+  color: #c6f45e;
+}
+
+:root[data-theme="dark"] .stories__lead {
+  color: var(--color-muted);
+}
+
+:root[data-theme="dark"] .stories__arrow-btn,
+:root[data-theme="dark"] .stories__side-arrow {
+  background: rgb(21 54 36 / 0.94);
+  border-color: rgb(198 244 94 / 0.24);
+  color: #c6f45e;
+  box-shadow: 0 10px 24px -6px rgb(2 12 6 / 0.7);
+}
+
+:root[data-theme="dark"] .stories__arrow-btn:hover,
+:root[data-theme="dark"] .stories__side-arrow:hover {
+  background: #c6f45e;
+  border-color: #c6f45e;
+  color: #081c11;
+}
+
+:root[data-theme="dark"] .story-card-item {
+  background: #153624;
+  border-color: rgb(198 244 94 / 0.16);
+  box-shadow: 0 14px 32px -12px rgb(2 12 6 / 0.72);
+}
+
+:root[data-theme="dark"] .story-card-item.is-center {
+  background: #183f2a;
+  border-color: rgb(198 244 94 / 0.55);
+  box-shadow:
+    0 24px 48px -14px rgb(2 12 6 / 0.88),
+    0 0 0 1px rgb(198 244 94 / 0.25);
+}
+
+:root[data-theme="dark"] .story-card-item:hover {
+  border-color: #c6f45e;
+  box-shadow: 0 20px 42px -12px rgb(2 12 6 / 0.85);
+}
+
+:root[data-theme="dark"] .story-card__photo-box {
+  background: #0d2518;
+}
+
+:root[data-theme="dark"] .story-card__age,
+:root[data-theme="dark"] .story-card__suffix {
+  color: #9ec0a8;
+}
+
+:root[data-theme="dark"] .story-card__quote {
+  color: #d6ede0;
+}
+
+:root[data-theme="dark"] .story-card__earnings {
+  border-top-color: rgb(198 244 94 / 0.14);
+}
+
+:root[data-theme="dark"] .story-card__amount {
+  color: #c6f45e;
+}
+
+/* --------------------------------------------------------------------------
+   8. Our Story / Journey Timeline & Shark Tank Proof
+   -------------------------------------------------------------------------- */
+:root[data-theme="dark"] .journey {
+  background: transparent;
+}
+
+:root[data-theme="dark"] .journey::before {
+  background: radial-gradient(circle, rgb(198 244 94 / 0.11), transparent 70%);
+}
+
+:root[data-theme="dark"] .journey::after {
+  background: radial-gradient(circle, rgb(34 197 94 / 0.12), transparent 68%);
+}
+
+:root[data-theme="dark"] .journey__eyebrow,
+:root[data-theme="dark"] .journey__highlight,
+:root[data-theme="dark"] .journey__link {
+  color: #4ade80;
+}
+
+:root[data-theme="dark"] .journey__link:hover {
+  color: #c6f45e;
+}
+
+:root[data-theme="dark"] .journey__lead {
+  color: var(--color-muted);
+}
+
+:root[data-theme="dark"] .journey__facts-card {
+  background: linear-gradient(145deg, #081c11 0%, #0d2f1c 55%, #07190f 100%);
+  border-color: rgb(198 244 94 / 0.24);
+}
+
+:root[data-theme="dark"] .journey-pill {
+  background: #173c27;
+  border-color: rgb(198 244 94 / 0.18);
+  box-shadow: 0 12px 28px -10px rgb(2 12 6 / 0.72);
+}
+
+:root[data-theme="dark"] .journey-pill:hover {
+  border-color: #c6f45e;
+  box-shadow: 0 18px 36px -10px rgb(2 12 6 / 0.85);
+}
+
+:root[data-theme="dark"] .journey-pill__copy {
+  color: #a9cab4;
+}
+
+:root[data-theme="dark"] .journey-pill__tag {
+  background: rgb(198 244 94 / 0.16);
+  color: #c6f45e;
+}
+
+:root[data-theme="dark"] .journey__axis {
+  background: linear-gradient(180deg, #c6f45e 0%, #4ade80 55%, #16a34a 100%);
+}
+
+:root[data-theme="dark"] .journey__step::after {
+  background: #153624;
+  border-color: #c6f45e;
+  box-shadow: 0 0 0 4px rgb(198 244 94 / 0.18);
+}
+
+/* --------------------------------------------------------------------------
+   9. For Businesses CTA Section
+   -------------------------------------------------------------------------- */
+:root[data-theme="dark"] .business {
+  background: transparent;
+}
+
+:root[data-theme="dark"] .business__eyebrow {
+  color: #164128;
+}
+
+:root[data-theme="dark"] .business__aside {
+  border-color: rgb(198 244 94 / 0.22);
+  background: #0d2719;
+  box-shadow: 0 26px 50px -28px rgb(2 12 6 / 0.85);
+}
+
+:root[data-theme="dark"] .business__stats {
+  border-bottom-color: rgb(198 244 94 / 0.16);
+}
+
+:root[data-theme="dark"] .business__stats div + div {
+  border-left-color: rgb(198 244 94 / 0.16);
+}
+
+:root[data-theme="dark"] .business__stats b {
+  color: #c6f45e;
+}
+
+:root[data-theme="dark"] .business__list li {
+  color: #e4f5ea;
+}
+
+:root[data-theme="dark"] .business__list svg {
+  color: #4ade80;
+}
+
+:root[data-theme="dark"] .business__note {
+  background: #153624;
+}
+
+:root[data-theme="dark"] .business__note svg {
+  color: #c6f45e;
+}
+
+/* --------------------------------------------------------------------------
+   10. FAQ Accordion Section
+   -------------------------------------------------------------------------- */
+:root[data-theme="dark"] .faq {
+  background: transparent;
+}
+
+:root[data-theme="dark"] .faq__support,
+:root[data-theme="dark"] .faq-item {
+  border-color: rgb(198 244 94 / 0.16);
+  background: #153624;
+}
+
+:root[data-theme="dark"] .faq-item.is-open {
+  border-color: rgb(198 244 94 / 0.42);
+  background: #183e29;
+}
+
+:root[data-theme="dark"] .faq__support-icon,
+:root[data-theme="dark"] .faq-item__icon {
+  background: rgb(198 244 94 / 0.14);
+  color: #c6f45e;
+}
+
+:root[data-theme="dark"] .faq__support p a {
+  color: #c6f45e;
+}
+
+/* --------------------------------------------------------------------------
+   11. Footer
+   -------------------------------------------------------------------------- */
+:root[data-theme="dark"] .site-footer {
+  background: #07170e;
+  border-top: 1px solid rgb(198 244 94 / 0.14);
+}

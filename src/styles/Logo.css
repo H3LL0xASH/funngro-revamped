@@ -1,0 +1,31 @@
+.brand {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  color: #0b140f;
+  text-decoration: none;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.brand:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+.brand__logo-svg {
+  height: clamp(28px, 4vw, 34px);
+  width: auto;
+  display: block;
+}
+
+.brand--light {
+  color: #ffffff;
+}
+
+.brand--light:hover {
+  opacity: 0.95;
+}
+
+.brand--light .brand__logo-svg {
+  height: clamp(32px, 4.5vw, 38px);
+}

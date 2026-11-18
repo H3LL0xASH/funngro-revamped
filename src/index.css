@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@import "./styles/fonts.css";
+@import "./styles/base.css";
+@import "./styles/Responsive.css";
+@import "./styles/theme.css";
+
+@theme {
+  --font-sans: "Figtree", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Bricolage Grotesque", "Figtree", ui-sans-serif, system-ui, sans-serif;
+
+  --color-cream: #fffdf6;
+  --color-paper: #ffffff;
+  --color-mist: #f4f8ee;
+  --color-ink: #122018;
+  --color-muted: #5d6a60;
+  --color-line: #e4ebde;
+  --color-forest: #0d2a1b;
+  --color-forest-2: #164128;
+  --color-brand: #189a4a;
+  --color-brand-dark: #0f7a39;
+  --color-accent: #c6f45e;
+  --color-accent-soft: #effcd5;
+  --color-peach: #ffe2cd;
+  --color-sky: #dff0ff;
+  --color-lilac: #ece4ff;
+  --color-amber: #f6a723;
+
+  --shadow-soft: 0 16px 40px -28px rgb(13 42 27 / 0.28);
+  --shadow-card: 0 20px 48px -30px rgb(13 42 27 / 0.32);
+  --shadow-float: 0 18px 38px -20px rgb(13 42 27 / 0.32);
+}

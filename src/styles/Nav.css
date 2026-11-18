@@ -1,0 +1,276 @@
+/* ==========================================================================
+   SITE NAVIGATION BAR
+   Sticky header with persistent theme switcher (desktop + mobile) and drawer
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  z-index: 50;
+  top: 0;
+  border-bottom: 1px solid var(--color-line);
+  background: rgb(255 253 246 / 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition:
+    background-color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.site-header.is-scrolled {
+  box-shadow: 0 10px 28px -18px rgb(13 42 27 / 0.22);
+}
+
+.nav-shell {
+  display: flex;
+  min-height: 66px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  transition: min-height 220ms ease;
+}
+
+.site-header.is-scrolled .nav-shell {
+  min-height: 58px;
+}
+
+.site-header .brand__logo-svg {
+  transition: transform 220ms ease;
+  transform-origin: left center;
+}
+
+.site-header.is-scrolled .brand__logo-svg {
+  transform: scale(0.93);
+}
+
+/* Persistent right-side controls (Theme toggle always visible + mobile menu button) */
+.nav-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: none;
+}
+
+/* Theme Switcher Button (Kept directly in navbar on both mobile and desktop) */
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: var(--color-paper);
+  color: var(--color-forest);
+  cursor: pointer;
+  box-shadow: 0 2px 8px -2px rgb(13 42 27 / 0.08);
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease,
+    transform 180ms ease,
+    box-shadow 200ms ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--color-brand);
+  background: var(--color-accent-soft);
+  color: var(--color-brand-dark);
+  transform: translateY(-1px);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle__icon {
+  display: grid;
+  place-items: center;
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme-toggle:hover .theme-toggle__icon {
+  transform: rotate(-12deg) scale(1.06);
+}
+
+.nav-toggle {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  place-items: center;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.nav-toggle:hover {
+  border-color: var(--color-brand);
+}
+
+.nav-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  display: none;
+  max-height: calc(100dvh - 66px);
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: auto;
+  border-bottom: 1px solid var(--color-line);
+  background: var(--color-cream);
+  padding: 1rem 1.25rem 1.35rem;
+  box-shadow: 0 22px 36px -28px rgb(13 42 27 / 0.4);
+}
+
+.nav-panel.is-open {
+  display: flex;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nav-link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  border-radius: 0.7rem;
+  padding: 0.65rem 0.85rem;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.nav-link__star {
+  margin-left: 1px;
+  color: var(--color-brand-dark);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.nav-link.is-active .nav-link__star {
+  color: currentColor;
+}
+
+.nav-link:hover {
+  background: var(--color-mist);
+  color: var(--color-ink);
+}
+
+.nav-link.is-active {
+  background: var(--color-accent);
+  color: var(--color-forest);
+  font-weight: 700;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.1rem;
+  border-top: 1px solid var(--color-line);
+  padding-top: 1rem;
+}
+
+.nav-login {
+  color: var(--color-ink);
+  font-size: 0.84rem;
+  font-weight: 600;
+  transition: color 160ms ease;
+}
+
+.nav-login:hover {
+  color: var(--color-brand);
+}
+
+.nav-signup {
+  min-height: 42px;
+  padding-inline: 1.05rem;
+  font-size: 0.78rem;
+}
+
+/* --------------------------------------------------------------------------
+   Desktop & Landscape iPad Layout (1024px+)
+   (Portrait tablets 768px–1023px use the clean slide-down drawer so links
+    never wrap or crowd the top bar.)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  .nav-shell {
+    min-height: 76px;
+    gap: 0.9rem;
+  }
+
+  .site-header.is-scrolled .nav-shell {
+    min-height: 64px;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-panel {
+    position: static;
+    display: flex;
+    max-height: none;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(0.75rem, 1.5vw, 1.25rem);
+    margin-left: clamp(0.6rem, 2.2vw, 2.5rem);
+    overflow: visible;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .nav-links {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.15rem;
+    margin-inline: auto;
+  }
+
+  .nav-link {
+    min-height: auto;
+    border-radius: 999px;
+    padding: 0.5rem clamp(0.6rem, 0.9vw, 0.85rem);
+    font-size: 0.8rem;
+  }
+
+  .nav-actions {
+    flex: none;
+    border: 0;
+    padding: 0;
+    gap: clamp(0.75rem, 1.3vw, 1.15rem);
+  }
+
+  .nav-login {
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  .nav-signup {
+    min-height: 40px;
+    padding-inline: 1rem;
+    font-size: 0.76rem;
+    white-space: nowrap;
+  }
+}

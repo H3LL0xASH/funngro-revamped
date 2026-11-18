@@ -1,0 +1,1214 @@
+/* ==========================================================================
+   FUNNGRO /EARN PAGE STYLESHEET
+   Clean, border-minimal tonal UI with continuous visual connectors across
+   all 6 sections + full Light Cream & Greenish Dark Forest theme support.
+   ========================================================================== */
+
+.earn-page {
+  position: relative;
+  overflow-x: clip;
+  background: transparent;
+}
+
+/* Shared Section Rhythm & Seamlessly Blended Tonal Washes */
+.earn-section {
+  position: relative;
+  padding-block: clamp(2.4rem, 4.5vw, 4.6rem);
+  background: transparent;
+}
+
+.earn-section--mist {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--color-mist-wash, rgb(228 242 223 / 0.55)) 12%,
+    var(--color-mist-wash, rgb(228 242 223 / 0.55)) 88%,
+    transparent 100%
+  );
+}
+
+.earn-head {
+  display: grid;
+  gap: 1.15rem;
+  margin-bottom: clamp(1.85rem, 3.6vw, 2.75rem);
+}
+
+.earn-head .section-title {
+  margin-top: 0.65rem;
+}
+
+@media (min-width: 900px) {
+  .earn-head {
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+    align-items: end;
+    gap: 2.5rem;
+  }
+
+  .earn-head .section-copy,
+  .earn-head .earn-filters {
+    justify-self: end;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   1. EarnHero — Breadcrumb, Display Headline & FY26 Snapshot
+   -------------------------------------------------------------------------- */
+.earn-hero {
+  position: relative;
+  overflow: clip;
+  padding-block: clamp(2rem, 4.5vw, 3.8rem) clamp(2.8rem, 5vw, 4.4rem);
+  background: transparent;
+}
+
+.earn-hero::before {
+  position: absolute;
+  top: -12rem;
+  right: -8rem;
+  width: 36rem;
+  height: 36rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(198 244 94 / 0.22), transparent 68%);
+  content: "";
+  pointer-events: none;
+}
+
+.earn-hero__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .earn-hero__grid {
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  }
+}
+
+.earn-crumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+  color: var(--color-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.earn-crumb a {
+  color: var(--color-brand-dark);
+  transition: color 160ms ease;
+}
+
+.earn-crumb a:hover {
+  color: var(--color-ink);
+  text-decoration: underline;
+}
+
+.earn-hero__eyebrow {
+  margin-bottom: 0.8rem;
+}
+
+.earn-hero__title {
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: clamp(2.15rem, 5vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.04;
+}
+
+.earn-hero__mark {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  padding-inline: 0.14em 0.16em;
+  color: var(--color-forest);
+}
+
+.earn-hero__mark::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0.1em -0.04em 0.04em -0.04em;
+  border-radius: 0.18em;
+  background: var(--color-accent);
+  content: "";
+  transform: rotate(-1.2deg);
+}
+
+.earn-hero__lead {
+  max-width: 32rem;
+  margin-top: 1rem;
+  color: var(--color-muted);
+  font-size: clamp(0.95rem, 1.25vw, 1.05rem);
+  line-height: 1.64;
+}
+
+.earn-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 1.5rem;
+}
+
+.earn-hero__trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.2rem;
+  padding: 0;
+  margin: 1.45rem 0 0;
+  list-style: none;
+}
+
+.earn-hero__trust li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  color: var(--color-ink);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.earn-hero__trust svg {
+  color: var(--color-brand);
+}
+
+/* Right FY26 Benchmark Snapshot (Borderless Deep Emerald Surface) */
+.earn-snapshot {
+  border-radius: 26px;
+  background: linear-gradient(155deg, #0b2919 0%, #0f3b23 55%, #071e12 100%);
+  padding: clamp(1.35rem, 2.5vw, 1.85rem);
+  color: #ffffff;
+  box-shadow: 0 26px 56px -22px rgb(6 25 14 / 0.62);
+}
+
+.earn-snapshot__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.earn-snapshot__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.72rem;
+  border-radius: 999px;
+  background: rgb(198 244 94 / 0.16);
+  color: #c6f45e;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.earn-snapshot__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #bbf7d0;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.earn-snapshot__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 0 3px rgb(74 222 128 / 0.3);
+}
+
+.earn-snapshot__metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin-top: 1.15rem;
+}
+
+.earn-snapshot__metric {
+  border-radius: 16px;
+  background: rgb(255 255 255 / 0.07);
+  padding: 0.9rem 1rem;
+}
+
+.earn-snapshot__metric--lime {
+  background: rgb(198 244 94 / 0.14);
+}
+
+.earn-snapshot__metric b {
+  display: block;
+  color: #c6f45e;
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.earn-snapshot__metric span {
+  display: block;
+  margin-top: 0.22rem;
+  color: rgb(230 245 234 / 0.78);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.earn-snapshot__list {
+  display: grid;
+  gap: 0.45rem;
+  padding: 0;
+  margin: 1rem 0 0;
+  list-style: none;
+}
+
+.earn-snapshot__list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.48rem 0.75rem;
+  border-radius: 11px;
+  background: rgb(255 255 255 / 0.05);
+  font-size: 0.8rem;
+}
+
+.earn-snapshot__list span {
+  color: rgb(255 255 255 / 0.85);
+}
+
+.earn-snapshot__list strong {
+  color: #c6f45e;
+  font-family: var(--font-display);
+  font-weight: 800;
+}
+
+.earn-snapshot__stores {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.earn-mini-store {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.62rem 0.75rem;
+  border-radius: 12px;
+  background: rgb(255 255 255 / 0.1);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: all 180ms ease;
+}
+
+.earn-mini-store:hover {
+  background: #c6f45e;
+  color: #081c11;
+}
+
+/* --------------------------------------------------------------------------
+   2. EarnCategories — Borderless Tonal Cards & Interactive Filter Pills
+   -------------------------------------------------------------------------- */
+.earn-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.earn-filter-pill {
+  padding: 0.44rem 0.95rem;
+  border-radius: 999px;
+  border: none;
+  background: var(--color-paper);
+  color: var(--color-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px -8px rgb(13 42 27 / 0.25);
+  transition: all 180ms ease;
+}
+
+.earn-filter-pill:hover {
+  color: var(--color-ink);
+  transform: translateY(-1px);
+}
+
+.earn-filter-pill.is-active {
+  background: var(--color-forest);
+  color: #ffffff;
+}
+
+.earn-cat-grid {
+  display: grid;
+  gap: 1.15rem;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 640px) {
+  .earn-cat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .earn-cat-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.earn-cat-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 22px;
+  background: var(--color-paper);
+  padding: 1.35rem;
+  box-shadow: 0 14px 32px -20px rgb(13 42 27 / 0.22);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.earn-cat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 42px -20px rgb(24 154 74 / 0.26);
+}
+
+.earn-cat-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.earn-cat-card__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #e3ff9d 0%, #c6f45e 100%);
+  color: #081c11;
+}
+
+.earn-cat-card__level {
+  padding: 0.24rem 0.65rem;
+  border-radius: 999px;
+  background: var(--color-accent-soft);
+  color: var(--color-brand-dark);
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.earn-cat-card__title {
+  margin-top: 0.95rem;
+  color: var(--color-ink);
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+.earn-cat-card__payout {
+  margin-top: 0.35rem;
+  color: var(--color-brand);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.earn-cat-card__desc {
+  margin-top: 0.5rem;
+  color: var(--color-muted);
+  font-size: 0.84rem;
+  line-height: 1.52;
+}
+
+.earn-cat-card__brands {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.95rem;
+}
+
+.earn-brand-tag,
+.earn-time-tag {
+  padding: 0.22rem 0.58rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.earn-brand-tag {
+  background: var(--color-mist);
+  color: var(--color-ink);
+}
+
+.earn-time-tag {
+  background: var(--color-accent-soft);
+  color: var(--color-brand-dark);
+}
+
+.earn-cat-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  color: var(--color-brand-dark);
+  font-size: 0.82rem;
+  font-weight: 800;
+  transition: gap 180ms ease, color 180ms ease;
+}
+
+.earn-cat-card__link:hover {
+  gap: 0.55rem;
+  color: var(--color-ink);
+}
+
+/* --------------------------------------------------------------------------
+   3. EarnSteps — Connected Vertical Spine Timeline (Borderless & Flowing)
+   -------------------------------------------------------------------------- */
+.earn-timeline {
+  position: relative;
+  display: grid;
+  gap: 1.1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Continuous vertical emerald-lime connector spine linking 01 -> 05 */
+.earn-timeline::before {
+  position: absolute;
+  top: 2rem;
+  bottom: 2rem;
+  left: 1.35rem;
+  width: 2.5px;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    #c6f45e 0%,
+    #22c55e 50%,
+    rgb(34 197 94 / 0.25) 100%
+  );
+  content: "";
+  pointer-events: none;
+}
+
+.earn-timeline__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(0.85rem, 2vw, 1.5rem);
+}
+
+.earn-timeline__node {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-top: 0.65rem;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #e4ff9c 0%, #c6f45e 100%);
+  color: #081c11;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 800;
+  box-shadow: 0 8px 20px -6px rgb(24 154 74 / 0.38);
+}
+
+.earn-timeline__panel {
+  display: grid;
+  gap: 1rem;
+  border-radius: 22px;
+  background: var(--color-mist);
+  padding: clamp(1.15rem, 2.2vw, 1.55rem) clamp(1.2rem, 2.5vw, 1.8rem);
+  transition: transform 200ms ease, background-color 200ms ease;
+}
+
+.earn-timeline__item:hover .earn-timeline__panel {
+  transform: translateX(4px);
+}
+
+@media (min-width: 860px) {
+  .earn-timeline__panel {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+.earn-timeline__kicker {
+  display: inline-block;
+  color: var(--color-brand-dark);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.earn-timeline__copy h3 {
+  margin-top: 0.25rem;
+  color: var(--color-ink);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  line-height: 1.18;
+}
+
+.earn-timeline__copy p {
+  margin-top: 0.42rem;
+  color: var(--color-muted);
+  font-size: 0.88rem;
+  line-height: 1.58;
+}
+
+.earn-timeline__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.48rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.earn-timeline__chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  padding: 0.4rem 0.78rem;
+  border-radius: 999px;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-size: 0.78rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px -8px rgb(13 42 27 / 0.22);
+}
+
+.earn-timeline__chips svg {
+  color: var(--color-brand);
+}
+
+/* --------------------------------------------------------------------------
+   4. EarnLadder — Connected 3-Stage Track + Unified Estimator
+   -------------------------------------------------------------------------- */
+.earn-ladder-track {
+  position: relative;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.earn-ladder-line {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .earn-ladder-track {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* Subtle horizontal emerald line visually connecting Stage 01 -> 02 -> 03 */
+  .earn-ladder-line {
+    display: block;
+    position: absolute;
+    top: 3.1rem;
+    right: 8%;
+    left: 8%;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #86efac 0%, #c6f45e 50%, #22c55e 100%);
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+.earn-stage-card {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  background: var(--color-paper);
+  padding: 1.55rem;
+  cursor: pointer;
+  box-shadow: 0 14px 34px -20px rgb(13 42 27 / 0.22);
+  transition: transform 220ms ease, box-shadow 220ms ease, outline-color 220ms ease;
+}
+
+.earn-stage-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 44px -18px rgb(24 154 74 / 0.28);
+}
+
+.earn-stage-card.is-selected {
+  box-shadow:
+    0 22px 44px -18px rgb(24 154 74 / 0.34),
+    0 0 0 2px var(--color-brand);
+}
+
+.earn-stage-card--featured {
+  background: linear-gradient(155deg, #0b2919 0%, #103a23 55%, #071e12 100%);
+  color: #ffffff;
+}
+
+.earn-stage-card--featured.is-selected {
+  box-shadow:
+    0 24px 48px -18px rgb(6 25 14 / 0.65),
+    0 0 0 2px #c6f45e;
+}
+
+.earn-stage-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.earn-stage-card__tag {
+  color: var(--color-muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.earn-stage-card--featured .earn-stage-card__tag {
+  color: #bbf7d0;
+}
+
+.earn-stage-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  padding: 0.22rem 0.62rem;
+  border-radius: 999px;
+  background: #c6f45e;
+  color: #081c11;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.earn-stage-card__title {
+  margin-top: 0.85rem;
+  color: var(--color-ink);
+  font-size: 1.32rem;
+}
+
+.earn-stage-card--featured .earn-stage-card__title {
+  color: #ffffff;
+}
+
+.earn-stage-card__range {
+  margin-top: 0.4rem;
+  color: var(--color-brand);
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.earn-stage-card--featured .earn-stage-card__range {
+  color: #c6f45e;
+}
+
+.earn-stage-card__body {
+  margin-top: 0.6rem;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  line-height: 1.56;
+}
+
+.earn-stage-card--featured .earn-stage-card__body {
+  color: rgb(230 245 234 / 0.82);
+}
+
+.earn-stage-card__perks {
+  display: grid;
+  gap: 0.45rem;
+  padding: 0.9rem 0 0;
+  margin: auto 0 0;
+  list-style: none;
+}
+
+.earn-stage-card__perks li {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.earn-stage-card--featured .earn-stage-card__perks li {
+  color: #edf9f0;
+}
+
+.earn-stage-card__perks svg {
+  color: var(--color-brand);
+}
+
+.earn-stage-card--featured .earn-stage-card__perks svg {
+  color: #c6f45e;
+}
+
+/* Unified Borderless Estimator Panel */
+.earn-estimator {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  border-radius: 26px;
+  background: var(--color-paper);
+  padding: clamp(1.35rem, 3vw, 2.15rem);
+  box-shadow: 0 18px 42px -24px rgb(13 42 27 / 0.24);
+}
+
+@media (min-width: 900px) {
+  .earn-estimator {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    align-items: center;
+    gap: 2.25rem;
+  }
+}
+
+.earn-estimator__eyebrow {
+  color: var(--color-brand-dark);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.earn-estimator__title {
+  margin-top: 0.35rem;
+  color: var(--color-ink);
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+  line-height: 1.2;
+}
+
+.earn-estimator__title .accent {
+  color: var(--color-brand);
+}
+
+.earn-estimator__stage-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+
+.earn-stage-btn {
+  padding: 0.44rem 0.92rem;
+  border-radius: 999px;
+  border: none;
+  background: var(--color-mist);
+  color: var(--color-ink);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+.earn-stage-btn.is-active {
+  background: var(--color-accent);
+  color: #081c11;
+}
+
+.earn-slider-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.2rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--color-muted);
+}
+
+.earn-slider-label strong {
+  color: var(--color-ink);
+  font-family: var(--font-display);
+}
+
+.earn-slider {
+  width: 100%;
+  margin-top: 0.5rem;
+  accent-color: #16a34a;
+  cursor: pointer;
+}
+
+.earn-slider-marks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.3rem;
+  color: var(--color-muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.earn-estimator__result {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #092416 0%, #103a23 100%);
+  padding: 1.5rem;
+  color: #ffffff;
+}
+
+.earn-estimator__result-label {
+  color: #bbf7d0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.earn-estimator__result-val {
+  margin-top: 0.4rem;
+  color: #c6f45e;
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 2.8vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.earn-estimator__benchmark {
+  margin-top: 0.65rem;
+  color: rgb(230 245 234 / 0.78);
+  font-size: 0.74rem;
+  line-height: 1.5;
+}
+
+.earn-estimator__result .btn {
+  margin-top: 1.1rem;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   5. EarnProgression — Full-Width 4×2 Connected Growth Roadmap
+   -------------------------------------------------------------------------- */
+.earn-roadmap-grid {
+  display: grid;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 640px) {
+  .earn-roadmap-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .earn-roadmap-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.earn-roadmap-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.8rem;
+  border-radius: 20px;
+  background: var(--color-mist);
+  padding: 1.25rem;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.earn-roadmap-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px -20px rgb(24 154 74 / 0.24);
+}
+
+.earn-roadmap-tile__head {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.earn-roadmap-tile__num {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #e4ff9c 0%, #c6f45e 100%);
+  color: #081c11;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.earn-roadmap-tile__tag {
+  color: var(--color-brand-dark);
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.earn-roadmap-tile__arrow {
+  margin-left: auto;
+  color: var(--color-brand);
+  font-weight: 800;
+  opacity: 0.65;
+}
+
+.earn-roadmap-tile__text {
+  color: var(--color-ink);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+/* 8th Balanced Slot CTA Tile */
+.earn-roadmap-tile--cta {
+  background: linear-gradient(145deg, #0b2919 0%, #114027 100%);
+  color: #ffffff;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.earn-roadmap-tile__eyebrow {
+  color: #c6f45e;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.earn-roadmap-tile--cta h3 {
+  color: #ffffff;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+.earn-roadmap-tile__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+  width: fit-content;
+  padding: 0.52rem 0.95rem;
+  border-radius: 999px;
+  background: #c6f45e;
+  color: #081c11;
+  font-size: 0.78rem;
+  font-weight: 800;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.earn-roadmap-tile__btn:hover {
+  background: #d9f99d;
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   6. EarnFAQ — Borderless Tonal Accordion + Final Lime CTA Banner
+   -------------------------------------------------------------------------- */
+.earn-faq__grid {
+  display: grid;
+  gap: 2.2rem;
+}
+
+@media (min-width: 900px) {
+  .earn-faq__grid {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: start;
+    gap: clamp(2.5rem, 5vw, 5rem);
+  }
+}
+
+.earn-faq__intro .section-title {
+  margin-top: 0.7rem;
+}
+
+.earn-faq__intro .section-copy {
+  margin-top: 0.8rem;
+}
+
+.earn-faq__trust-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 1.4rem;
+  border-radius: 18px;
+  background: var(--color-paper);
+  padding: 1rem 1.15rem;
+  box-shadow: 0 10px 26px -18px rgb(13 42 27 / 0.2);
+}
+
+.earn-faq__trust-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex: none;
+  border-radius: 11px;
+  background: var(--color-accent-soft);
+  color: var(--color-brand-dark);
+}
+
+.earn-faq__trust-box b {
+  display: block;
+  color: var(--color-ink);
+  font-size: 0.84rem;
+}
+
+.earn-faq__trust-box p {
+  margin-top: 0.18rem;
+  color: var(--color-muted);
+  font-size: 0.76rem;
+  line-height: 1.48;
+}
+
+.earn-faq__list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+/* Borderless Tonal FAQ Item with Zero-Lag Expand/Collapse */
+.earn-faq-item {
+  overflow: hidden;
+  contain: layout style;
+  border-radius: 18px;
+  background: var(--color-paper);
+  box-shadow: 0 8px 20px -16px rgb(13 42 27 / 0.18);
+  transition: background-color 180ms ease;
+}
+
+.earn-faq-item.is-open {
+  box-shadow: 0 16px 34px -20px rgb(24 154 74 / 0.28);
+}
+
+.earn-faq-item.is-open .faq-item__icon {
+  background: var(--color-accent);
+  color: var(--color-forest);
+  transform: rotate(90deg);
+}
+
+.earn-faq-item.is-open .faq-item__collapse {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.earn-bottom-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  margin-top: clamp(2.8rem, 5vw, 4.2rem);
+  border-radius: 26px;
+  background: linear-gradient(135deg, #e4ff9c 0%, #c6f45e 55%, #93ee97 100%);
+  padding: clamp(1.6rem, 3.5vw, 2.6rem);
+  color: #081c11;
+  box-shadow: 0 18px 42px -18px rgb(24 154 74 / 0.32);
+}
+
+@media (min-width: 900px) {
+  .earn-bottom-cta {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.earn-bottom-cta__copy {
+  max-width: 32rem;
+}
+
+.earn-bottom-cta__eyebrow {
+  display: inline-block;
+  color: #164e2b;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.earn-bottom-cta__copy h2 {
+  margin-top: 0.4rem;
+  color: #081c11;
+  font-size: clamp(1.45rem, 2.7vw, 2.15rem);
+  line-height: 1.1;
+}
+
+.earn-bottom-cta__copy p {
+  margin-top: 0.5rem;
+  color: #1a3f28;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.earn-bottom-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.earn-bottom-cta__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.65rem 0.9rem;
+  color: #081c11;
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.earn-bottom-cta__back:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   GREENISH FOREST DARK THEME OVERRIDES FOR /EARN
+   ========================================================================== */
+:root[data-theme="dark"] .earn-crumb a,
+:root[data-theme="dark"] .earn-cat-card__link,
+:root[data-theme="dark"] .earn-timeline__kicker,
+:root[data-theme="dark"] .earn-estimator__eyebrow,
+:root[data-theme="dark"] .earn-roadmap-tile__tag {
+  color: #c6f45e;
+}
+
+:root[data-theme="dark"] .earn-hero__mark {
+  color: #081c11;
+}
+
+:root[data-theme="dark"] .earn-cat-card__level,
+:root[data-theme="dark"] .earn-time-tag,
+:root[data-theme="dark"] .earn-faq__trust-icon {
+  background: rgb(198 244 94 / 0.16);
+  color: #c6f45e;
+}
+
+:root[data-theme="dark"] .earn-filter-pill.is-active {
+  background: #c6f45e;
+  color: #081c11;
+}
+
+:root[data-theme="dark"] .earn-slider {
+  accent-color: #c6f45e;
+}
+
+:root[data-theme="dark"] .earn-faq-item .faq-item__icon {
+  background: rgb(198 244 94 / 0.15);
+  color: #c6f45e;
+}
+
+:root[data-theme="dark"] .earn-faq-item.is-open .faq-item__icon {
+  background: #c6f45e;
+  color: #081c11;
+}

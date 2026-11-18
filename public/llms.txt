@@ -1,0 +1,32 @@
+# Funngro — Youth Earning Platform
+
+> Funngro is India's leading platform for young people aged 14 to 25 to work on paid brand campaigns, content creation, referrals, and surveys with verified brands and UPI payouts.
+
+Funngro enables young earners across India to discover paid micro-projects and briefs from over 5,000 top brands including ICICI, Kotak, CarDekho, Paytm, Nielsen, and Toluna. Earners build real workplace skills, earn independent income, and receive fast payouts directly via UPI or direct bank transfer.
+
+## Core Navigation & Sections
+
+- [Home](https://www.funngro.com/#home): Hero overview of Funngro opportunities, key statistics, and app download links.
+- [Ways to Earn](https://www.funngro.com/#ways-to-earn): Four core earning streams including Brand Campaigns, Content Creation, Referrals, and Surveys.
+- [How It Works](https://www.funngro.com/#how-it-works): Four simple steps: Download & sign up, pick a brand campaign, submit work, and get paid by UPI.
+- [SheLancers](https://www.funngro.com/#shelancers): Empowering women with safe, flexible freelance opportunities, dedicated women-only clans, and briefs.
+- [Inside the App](https://www.funngro.com/#app): Five-screen interactive showcase: Home screen, Growth tiers, Daily tasks, Ladder levels, and UPI Wallet.
+- [Stories](https://www.funngro.com/#stories): Real earner testimonials and payouts from youth across India (Anshika, Sarthak, Yash Raj Singh).
+- [About Us](https://www.funngro.com/#about): Funngro journey from MVP to 70 Lakh+ earners, including Shark Tank India Season 2 investment.
+- [For Businesses](https://www.funngro.com/#businesses): Information for companies and brands looking to hire verified youth talent for paid briefs.
+- [FAQ](https://www.funngro.com/#faq): Frequently asked questions on age eligibility, payment processing, platform safety, and business campaigns.
+
+## Key Facts
+
+- **Target Audience:** Young Indians aged 14 to 25 (teens, college students, early-career creators).
+- **Active Community:** Over 70 Lakh young Indians registered and earning.
+- **Brand Partners:** Over 5,000 verified brands and companies.
+- **Cost to Earn:** 100% free to join; zero registration or withdrawal fees.
+- **Payout Method:** Instant or under-24-hour payouts via UPI and NEFT/IMPS bank transfer.
+- **Recognition:** Backed on Shark Tank India Season 2; top-ranked education app on Google Play.
+
+## Additional Resources
+
+- [Full Documentation](https://www.funngro.com/llms-full.txt): Extended technical and service documentation for AI agents.
+- [AI Resource Catalog](https://www.funngro.com/.well-known/ai-catalog.json): Machine-readable Agentic Resource Discovery (ARD) catalog.
+- [Sitemap](https://www.funngro.com/sitemap.xml): Complete URL index.

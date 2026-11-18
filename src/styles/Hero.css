@@ -1,0 +1,529 @@
+.hero {
+  position: relative;
+  overflow: clip;
+  padding-block: 1.6rem 2.2rem;
+}
+
+.hero::before {
+  position: absolute;
+  z-index: -1;
+  top: -16rem;
+  right: -12rem;
+  width: 36rem;
+  height: 36rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(198 244 94 / 0.2), transparent 68%);
+  content: "";
+  pointer-events: none;
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.hero__copy {
+  order: 2;
+  position: relative;
+  z-index: 5;
+  min-width: 0;
+  text-align: center;
+  margin-top: -1.8rem;
+}
+
+.hero__tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 auto 0.95rem;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.88);
+  padding: 0.32rem 0.85rem;
+  color: #3b5a26;
+  font-family: var(--font-display);
+  font-size: clamp(0.7rem, 2vw, 0.78rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 8px -2px rgb(13 42 27 / 0.06);
+}
+
+.hero__tagline-pulse {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--color-brand);
+  box-shadow: 0 0 0 3px rgb(198 244 94 / 0.45);
+}
+
+.hero__title {
+  max-width: none;
+  margin: 0;
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: clamp(2.15rem, 8.4vw, 3.95rem);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 1.02;
+  text-align: center;
+}
+
+.hero__title > span {
+  display: block;
+}
+
+.hero__title > .hero__mark {
+  display: inline-block;
+}
+
+.hero__mark {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  padding-inline: 0.14em 0.18em;
+}
+
+.hero__mark::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0.1em -0.06em 0.02em -0.06em;
+  border-radius: 0.16em 0.22em 0.14em 0.2em;
+  background: var(--color-accent);
+  content: "";
+  transform: rotate(-1.5deg);
+}
+
+.hero__lead {
+  max-width: 32rem;
+  margin: 0.85rem auto 0;
+  color: var(--color-muted);
+  font-size: 0.94rem;
+  line-height: 1.62;
+  text-align: center;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+.hero__actions .btn {
+  min-height: 46px;
+  padding-inline: 1.2rem;
+  font-size: 0.84rem;
+}
+
+/* 3-column proof cards row matching user screenshot on mobile & desktop */
+.hero__proof {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.4rem;
+  max-width: 32rem;
+  padding: 0;
+  margin: 1.25rem auto 0;
+  list-style: none;
+}
+
+.hero__proof-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.35rem;
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  background: rgb(255 255 255 / 0.8);
+  padding: 0.55rem 0.5rem;
+  box-shadow: 0 2px 6px -1px rgb(13 42 27 / 0.05);
+}
+
+.hero__proof-icon {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  flex: none;
+  place-items: center;
+  margin-inline: auto;
+  border-radius: 9px;
+  background: var(--color-accent-soft);
+  color: var(--color-brand-dark);
+}
+
+.hero__proof-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 0;
+  width: 100%;
+}
+
+.hero__proof-item b {
+  display: block;
+  overflow: hidden;
+  color: var(--color-ink);
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hero__proof-item small {
+  display: block;
+  overflow: hidden;
+  margin-top: 0.12rem;
+  color: var(--color-muted);
+  font-size: 0.6rem;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Art container: placed high up on mobile (order: 1, before text) */
+.hero__art {
+  order: 1;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: min(100%, 25rem);
+  height: clamp(17.5rem, 80vw, 22rem);
+  margin: 0 auto;
+}
+
+/* Bright lime circle centered directly behind the upper portion */
+.hero__blob {
+  position: absolute;
+  top: 4%;
+  left: 50%;
+  width: min(78vw, 18.5rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e3ff9d 0%, var(--color-accent) 55%, #a6e739 100%);
+  transform: translateX(-50%);
+}
+
+/* Outer circular orbit line */
+.hero__ring {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  width: min(86vw, 20.5rem);
+  aspect-ratio: 1;
+  border: 1.5px solid rgb(13 42 27 / 0.16);
+  border-radius: 50%;
+  transform: translateX(-50%) rotate(4deg);
+}
+
+/* Stage container: preserves intrinsic 1199/1312 aspect ratio */
+.hero__stage {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  aspect-ratio: 1199 / 1312;
+  margin-inline: auto;
+}
+
+/* Portrait photo: fills the stage and dissolves seamlessly into the connected canvas */
+.hero__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 16px 22px rgb(13 42 27 / 0.12));
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 80%,
+    rgb(0 0 0 / 0.45) 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 80%,
+    rgb(0 0 0 / 0.45) 92%,
+    transparent 100%
+  );
+}
+
+/* Floating chips positioned over the upper half */
+.hero-chip {
+  position: absolute;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid #e5ede0;
+  border-radius: 999px;
+  background: #fff;
+  padding: 0.3rem 0.62rem 0.3rem 0.3rem;
+  color: var(--color-forest);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 8px 20px -10px rgb(13 42 27 / 0.38);
+  animation: heroFloat 6s ease-in-out infinite;
+}
+
+.hero-chip__icon {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  flex: none;
+  place-items: center;
+  border-radius: 999px;
+}
+
+.hero-chip__icon--lime {
+  background: var(--color-accent);
+  color: var(--color-forest);
+}
+
+.hero-chip__icon--amber {
+  background: #ffd98f;
+  color: #78510a;
+}
+
+/* Chip 1: Paid campaigns (upper left) */
+.hero-chip--campaigns {
+  top: 24%;
+  left: 1%;
+  transform: rotate(-3deg);
+}
+
+/* Chip 2: Create content (top right, dark pill with white text) */
+.hero-chip--content {
+  top: 8%;
+  right: 1%;
+  border-color: var(--color-forest);
+  background: var(--color-forest);
+  color: #fff;
+  transform: rotate(2deg);
+  animation-delay: -1.5s;
+}
+
+/* Chip 3: Take surveys (lower left, near phone hand and fade border) */
+.hero-chip--surveys {
+  bottom: 12%;
+  left: 1%;
+  transform: rotate(2deg);
+  animation-delay: -3s;
+}
+
+/* Chip 4: Refer & earn (lower right, near bottom fade border) */
+.hero-chip--refer {
+  right: 1%;
+  bottom: 8%;
+  transform: rotate(-2deg);
+  animation-delay: -4.5s;
+}
+
+.hero__sparkle {
+  position: absolute;
+  z-index: 4;
+  color: var(--color-forest);
+  opacity: 0.85;
+}
+
+.hero__sparkle--one {
+  top: 5%;
+  left: 32%;
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.hero__sparkle--two {
+  top: 40%;
+  right: 1%;
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.hero__sparkle--three {
+  bottom: 8%;
+  left: 28%;
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+@keyframes heroFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Tablet screens (640px+) */
+@media (min-width: 640px) {
+  .hero {
+    padding-block: 2.8rem 3.4rem;
+  }
+
+  .hero__title > span {
+    white-space: nowrap;
+  }
+
+  .hero__lead {
+    font-size: 1.02rem;
+  }
+
+  .hero__actions .btn {
+    min-height: 50px;
+    padding-inline: 1.35rem;
+    font-size: 0.88rem;
+  }
+
+  .hero__proof {
+    gap: 0.75rem;
+  }
+
+  .hero__proof-item {
+    padding: 0.6rem 0.75rem;
+  }
+
+  .hero__proof-item b {
+    font-size: 0.76rem;
+  }
+
+  .hero__proof-item small {
+    font-size: 0.66rem;
+  }
+
+  .hero__art {
+    order: 1;
+    width: min(100%, 28rem);
+    height: 25rem;
+    overflow: hidden;
+  }
+
+  .hero__copy {
+    order: 2;
+    margin-top: -2rem;
+  }
+
+  .hero__stage {
+    width: 100%;
+  }
+
+  .hero-chip {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.7rem 0.35rem 0.35rem;
+  }
+
+  .hero-chip__icon {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* Desktop screens (960px+) */
+@media (min-width: 960px) {
+  .hero {
+    padding-block: 3.4rem 4.2rem;
+  }
+
+  .hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .hero__copy {
+    order: 1;
+    margin-top: 0;
+    text-align: left;
+  }
+
+  .hero__tagline {
+    margin-inline: 0;
+  }
+
+  .hero__title {
+    font-size: clamp(2.6rem, 4.3vw, 4.05rem);
+    line-height: 0.98;
+    text-align: left;
+  }
+
+  .hero__lead {
+    margin-top: 1.15rem;
+    margin-inline: 0;
+    font-size: 1.02rem;
+    text-align: left;
+  }
+
+  .hero__actions {
+    justify-content: flex-start;
+    margin-top: 1.7rem;
+  }
+
+  .hero__proof {
+    margin: 2rem 0 0;
+    gap: 0.85rem;
+  }
+
+  .hero__art {
+    order: 2;
+    width: 100%;
+    max-width: 32rem;
+    height: auto;
+    min-height: 35rem;
+    margin: 0;
+    justify-self: center;
+    overflow: visible; /* Never cut creator arms or circle on desktop! */
+  }
+
+  .hero__stage {
+    width: 100%;
+    max-width: 32rem;
+  }
+
+  .hero__blob {
+    width: 27rem;
+    top: 4%;
+  }
+
+  .hero__ring {
+    width: 30rem;
+    top: 0%;
+  }
+
+  .hero__art::after {
+    height: 6rem;
+    bottom: -0.5rem;
+  }
+
+  .hero-chip--campaigns {
+    top: 20%;
+    left: -1.2rem;
+  }
+
+  .hero-chip--content {
+    top: 8%;
+    right: -1.2rem;
+  }
+
+  .hero-chip--surveys {
+    bottom: 16%;
+    left: -1.2rem;
+  }
+
+  .hero-chip--refer {
+    right: -1.2rem;
+    bottom: 9%;
+  }
+}
