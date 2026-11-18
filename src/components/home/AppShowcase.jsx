@@ -1,16 +1,3 @@
-/**
- * AppShowcase Component — "Inside the app · Five screens. One uninterrupted journey."
- *
- * Implements a pinned, scroll-driven 5-screen product tour on BOTH desktop and mobile:
- * - The entire stage stays rock-solid in place until all 5 steps finish scrolling.
- * - ONLY the dynamic description text (sliding smoothly bottom-to-up inside a fixed
- *   masked slot), the inner phone screen image, the active step highlight card
- *   (01 Home Screen → 02 Growth → 03 Daily Tasks → 04 Clan Ladder → 05 UPI Payout),
- *   and the segmented progress bar update on scroll.
- * - Clicking step cards, mobile prev/next arrows, pagination dots, or swiping the
- *   phone jumps smoothly to that exact chapter inside the pinned scroll timeline.
- */
-
 import { useCallback, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -35,9 +22,6 @@ import "../../styles/AppShowcase.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-/* --------------------------------------------------------------------------
-   Custom Step & Feature SVG Icons matching mockup aesthetics
-   -------------------------------------------------------------------------- */
 function HomeStepIcon({ className = "size-5" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
@@ -101,9 +85,6 @@ function JourneyBrush() {
   );
 }
 
-/* --------------------------------------------------------------------------
-   Five App Chapters (Ordered 01 -> 05)
-   -------------------------------------------------------------------------- */
 const showcaseChapters = [
   {
     step: "01",
@@ -277,15 +258,12 @@ export default function AppShowcase() {
       ref={sectionRef}
       aria-labelledby="app-showcase-title"
     >
-      {/* Organic corner luminous waves */}
       <div className="app-showcase__corner-top" aria-hidden="true" />
       <div className="app-showcase__corner-bottom" aria-hidden="true" />
 
       <div className="app-showcase__pin" ref={pinStageRef}>
         <div className="container-page app-showcase__container">
-          {/* Main 3-Column Stage (Desktop) / Stacked Locked Stage (Mobile) */}
           <div className="app-showcase__stage">
-            {/* COLUMN 1: Left Static Copy Shell + Bottom-to-Up Dynamic Text */}
             <div className="app-showcase__left">
               <div className="app-showcase__pill">
                 <span className="app-showcase__pill-dot" aria-hidden="true" />
@@ -378,7 +356,6 @@ export default function AppShowcase() {
               </div>
             </div>
 
-            {/* COLUMN 2: Center Static Phone Mockup + Glowing Pedestal */}
             <div
               className="app-showcase__center"
               onTouchStart={handleTouchStart}
@@ -391,12 +368,10 @@ export default function AppShowcase() {
                 role="region"
                 aria-label={`Phone screen ${currentChapter.step}: ${currentChapter.label}`}
               >
-                {/* Dynamic Island Notch */}
                 <div className="showcase-phone__island" aria-hidden="true">
                   <span className="showcase-phone__lens" />
                 </div>
 
-                {/* Inner Screen Stack: ONLY the screen image transitions smoothly */}
                 <div className="showcase-phone__screen">
                   {showcaseChapters.map((chapter, index) => {
                     const stateClass =
@@ -432,14 +407,12 @@ export default function AppShowcase() {
                 <div className="showcase-phone__shine" aria-hidden="true" />
               </div>
 
-              {/* Glowing Emerald 3D Pedestal (Desktop) */}
               <div className="app-pedestal" aria-hidden="true">
                 <div className="app-pedestal__top" />
                 <div className="app-pedestal__base" />
               </div>
             </div>
 
-            {/* COLUMN 3: Right Vertical 5-Step Highlight Rail (Desktop) */}
             <nav
               className="app-steps-rail"
               aria-label="App journey steps"

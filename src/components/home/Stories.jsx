@@ -1,21 +1,8 @@
-/**
- * Stories — "Real people. Real payouts."
- *
- * Interactive earner stories slider (built with plain React + CSS, no GSAP):
- * - On desktop: shows 5 cards in a stepped pyramid — the middle card pops up
- *   highest, the two cards next to it step slightly down, and the two outer
- *   cards step down a little further.
- * - On tablet: shows 3 cards (middle popped up, left/right stepped down).
- * - On mobile: shows 1 full card at a time with swipe support.
- * - Automatically slides forward and smoothly reverses when it reaches either
- *   end (1 -> 2 -> 3 ... -> End -> ... -> 3 -> 2 -> 1).
- */
 import { useCallback, useEffect, useRef, useState } from "react";
 import { appStoreUrl, stories, storiesUrl } from "../../data/siteContent";
 import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight } from "../Icons";
 import "../../styles/Stories.css";
 
-// Decide how many cards fit side-by-side based on screen width
 function getVisibleCount() {
   if (typeof window === "undefined") return 5;
   if (window.innerWidth >= 1024) return 5;
@@ -27,8 +14,6 @@ export default function Stories() {
   const [visibleCount, setVisibleCount] = useState(getVisibleCount);
   const [startIndex, setStartIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-
-  // +1 means sliding right (forward), -1 means sliding back left (reverse)
   const directionRef = useRef(1);
   const touchStartX = useRef(null);
 

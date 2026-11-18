@@ -1,11 +1,3 @@
-/**
- * Funngro Site Content & Data Registry
- *
- * Centralizes all external URLs, navigation items, partner brands,
- * earner stories, company milestones, SheLancer benefits, FAQs, and
- * footer links so updates stay consistent across the entire site.
- */
-
 import sarthakImg from "../assets/funngro/sarthak-JEn2W_Kg.jpg";
 import anshikaImg from "../assets/funngro/anshika-pAAPWHhq.jpg";
 import ashwaniImg from "../assets/funngro/ashwani-SiRn6cf8.jpg";
@@ -17,11 +9,6 @@ import ujjwalImg from "../assets/funngro/ujjwal-dubey-CJkNhre1.jpg";
 import swarnimImg from "../assets/funngro/swarnim-prateek-DTj-8Wo4.jpg";
 import naitikImg from "../assets/funngro/naitik-mishra-CG3pxFIL.jpg";
 
-/* --------------------------------------------------------------------------
-   App Store & Placeholder Platform Links
-   (App Store & Play Store stay active; funngro.com redirects are intentionally
-    left as blank `#` placeholders so this revamp never redirects away.)
-   -------------------------------------------------------------------------- */
 export const appStoreUrl =
   "https://play.google.com/store/apps/details?id=com.wishbanc.funngro";
 export const appleStoreUrl =
@@ -32,10 +19,6 @@ export const contactSalesUrl = "#";
 export const storiesUrl = "#";
 export const aboutUrl = "#";
 
-/* --------------------------------------------------------------------------
-   Top Navigation Links
-   Home and Earn carry a `*` marker to highlight the two full interactive pages.
-   -------------------------------------------------------------------------- */
 export const navLinks = [
   { label: "Home", href: "/", starred: true },
   { label: "Earn", href: "/earn", starred: true },
@@ -45,9 +28,7 @@ export const navLinks = [
   { label: "About Us", href: "/#about" },
 ];
 
-/* --------------------------------------------------------------------------
-   Partner Brands (Displayed in the Auto-Scrolling BrandsStrip Marquee)
-   -------------------------------------------------------------------------- */
+// Partner Brands
 export const brandLogos = [
   { name: "Lifelong", category: "D2C", mark: "LL", bg: "#edf1f5", color: "#334155" },
   { name: "ICICI", category: "Banking", mark: "I", bg: "#f9e5e8", color: "#a32235" },
@@ -61,9 +42,7 @@ export const brandLogos = [
   { name: "Novio", category: "D2C", mark: "N", bg: "#eaf6de", color: "#41690f" },
 ];
 
-/* --------------------------------------------------------------------------
-   Verified Earner Stories (Displayed in the Stories Horizontal Carousel)
-   -------------------------------------------------------------------------- */
+// Earner Stories
 export const stories = [
   {
     name: "Sarthak",
@@ -178,9 +157,7 @@ export const stories = [
   },
 ];
 
-/* --------------------------------------------------------------------------
-   Company Journey Timeline & Snapshot Facts (Journey Section)
-   -------------------------------------------------------------------------- */
+// Journey Milestones
 export const journeyMilestones = [
   {
     when: "FY22",
@@ -220,9 +197,7 @@ export const journeyFacts = [
   { label: "FY26", value: "10 of 12 months profitable" },
 ];
 
-/* --------------------------------------------------------------------------
-   SheLancer Community Benefits
-   -------------------------------------------------------------------------- */
+// SheLancer Benefits
 export const sheLancerBenefits = [
   {
     icon: "shield",
@@ -246,9 +221,7 @@ export const sheLancerBenefits = [
   },
 ];
 
-/* --------------------------------------------------------------------------
-   Frequently Asked Questions
-   -------------------------------------------------------------------------- */
+// FAQs
 export const faqs = [
   {
     question: "Is Funngro free to join?",
@@ -282,9 +255,7 @@ export const faqs = [
   },
 ];
 
-/* --------------------------------------------------------------------------
-   Footer Navigation Columns & Social Profiles
-   -------------------------------------------------------------------------- */
+// Footer Columns
 export const footerColumns = [
   {
     title: "Earn",
@@ -310,7 +281,7 @@ export const footerColumns = [
     links: [
       { label: "FAQs", href: "/#faq" },
       { label: "Trust & safety", href: "#" },
-      { label: "Contact", href: "mailto:hello@funngro.com" },
+      { label: "Contact", href: "#" },
     ],
   },
   {
@@ -323,9 +294,9 @@ export const footerColumns = [
 ];
 
 export const socialLinks = [
-  { label: "Funngro on Instagram", href: "https://www.instagram.com/fun.n.gro", icon: "instagram" },
-  { label: "Funngro on LinkedIn", href: "https://www.linkedin.com/company/funngro/", icon: "linkedin" },
-  { label: "Funngro on YouTube", href: "https://www.youtube.com/@funngro_India", icon: "youtube" },
-  { label: "Funngro on X", href: "https://x.com/funngroofficial", icon: "x" },
-  { label: "Funngro on Facebook", href: "https://www.facebook.com/funngro/", icon: "facebook" },
+  { label: "Instagram", href: "#", icon: "instagram" },
+  { label: "LinkedIn", href: "#", icon: "linkedin" },
+  { label: "YouTube", href: "#", icon: "youtube" },
+  { label: "X", href: "#", icon: "x" },
+  { label: "Facebook", href: "#", icon: "facebook" },
 ];

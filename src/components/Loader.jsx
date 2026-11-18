@@ -1,17 +1,3 @@
-/**
- * Loader — Minimal Branded Funngro Loading Effects (Icon-Only, No Visible Text)
- *
- * Uses Funngro's signature 4 rising green growth bars so every loading state
- * matches both Light Cream and Greenish Forest Dark themes effortlessly.
- *
- * Variants:
- * - `splash`  : Quick, smooth entry loader when the site first boots (fades out & unmounts)
- * - `inline`  : Clean centered loader shown while lazy routes like `/earn` download
- * - `compact` : Subtle dark-glass loader for embedded media (e.g., Shark Tank YouTube player)
- *
- * Also exports `RouteProgressBar`, a sleek lime-emerald bar gliding across the
- * top edge whenever you switch between `/` and `/earn`.
- */
 import "../styles/Loader.css";
 
 export function PageLoader({

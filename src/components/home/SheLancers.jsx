@@ -1,9 +1,3 @@
-/**
- * SheLancers — Women-Only Freelancing Community Spotlight
- *
- * Highlights Funngro's dedicated community for young Indian women, pairing a
- * real team photo with four key benefits and direct join/safety links.
- */
 import sheLancerTeam from "../../assets/funngro/shelancer-collaborative-800.webp";
 import sheLancerTeamSmall from "../../assets/funngro/shelancer-collaborative-500.webp";
 import sheLancerTeamLarge from "../../assets/funngro/shelancer-collaborative-1200.webp";

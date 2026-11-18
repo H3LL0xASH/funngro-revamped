@@ -1,14 +1,3 @@
-/**
- * HowItWorks Component — "More ways to earn, from sign-up to payout."
- *
- * Scroll-driven horizontal glassy step showcase:
- * - Uses the 4 custom translucent background PNG illustrations layered smoothly
- *   underneath frosted glass cards (01 Create your account -> 04 Get paid by UPI).
- * - Zero side scroll arrows; driven naturally by page scroll via GSAP ScrollTrigger.
- * - Stops and releases the pin the moment Card 04 ("Get paid by UPI") cleanly
- *   enters from the right, immediately allowing natural downward scrolling.
- */
-
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -28,11 +17,6 @@ import "../../styles/HowItWorks.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-/* --------------------------------------------------------------------------
-   Custom 3D-Style Foreground Illustrations matching Reference Mockup
-   -------------------------------------------------------------------------- */
-
-/** Card 01: Glossy 3D Mobile Account Card with Profile & Green Plus Badge */
 function AccountPhone3D() {
   return (
     <div className="hiw-art-3d hiw-art-3d--account" aria-hidden="true">
@@ -72,7 +56,6 @@ function AccountPhone3D() {
   );
 }
 
-/** Card 02: 2×2 Frosted Mini Category Tiles Grid (Play, Referrals, Games, Surveys) */
 function CampaignMiniGrid() {
   return (
     <div className="hiw-mini-grid" aria-hidden="true">
@@ -108,7 +91,6 @@ function CampaignMiniGrid() {
   );
 }
 
-/** Card 03: Glossy 3D Photo Card with Green Upload Arrow Badge */
 function SubmitUpload3D() {
   return (
     <div className="hiw-art-3d hiw-art-3d--submit" aria-hidden="true">
@@ -147,7 +129,6 @@ function SubmitUpload3D() {
   );
 }
 
-/** Card 04: Glossy 3D Green Wallet with Gold Coins & Rupee Symbol */
 function WalletCash3D() {
   return (
     <div className="hiw-art-3d hiw-art-3d--wallet" aria-hidden="true">
@@ -336,8 +317,6 @@ export default function HowItWorks() {
       return undefined;
     }
 
-    // Compute exact horizontal travel so scrolling ENDS the moment Card 04
-    // cleanly enters and aligns with the right edge of the viewport!
     const getMaxShift = () =>
       Math.max(0, track.scrollWidth - viewport.clientWidth);
 
@@ -346,15 +325,11 @@ export default function HowItWorks() {
         gsap.set(trust, { opacity: 0.25, y: 20 });
       }
 
-      // Pin this section and slide the 4 step cards horizontally as you scroll down.
-      // Using scrub: true keeps card motion locked 1:1 to scroll with zero trailing lag.
       const tl = gsap.timeline({
         scrollTrigger: {
           id: "hiw-step-carousel",
           trigger: section,
-          // On phones & portrait tablets, pin right below the navbar with zero dead space above
           start: () => (window.innerWidth < 960 ? "top 60px" : "top top"),
-          // Scroll distance matches card travel + a short pause once Card 04 arrives
           end: () =>
             `+=${Math.max(
               window.innerHeight * 0.95,
@@ -367,7 +342,6 @@ export default function HowItWorks() {
           invalidateOnRefresh: true,
           scrub: true,
           onUpdate: (self) => {
-            // Map the sliding portion (0% -> 80%) across the 4 steps, then hold on Step 04
             const slideProgress = Math.min(1, self.progress / 0.8);
             const nextStep = Math.min(
               howSteps.length - 1,
@@ -383,7 +357,6 @@ export default function HowItWorks() {
 
       triggerRef.current = tl.scrollTrigger;
 
-      // Move the card row horizontally on the GPU until Card 04 lines up neatly on the right
       tl.to(
         track,
         {
@@ -395,7 +368,6 @@ export default function HowItWorks() {
         0,
       );
 
-      // Reveal the Safe & Trusted strip cleanly as Card 04 settles
       if (trust) {
         tl.to(
           trust,
@@ -410,7 +382,6 @@ export default function HowItWorks() {
         );
       }
 
-      // Brief breathing dwell so the user can view Card 04 before unpinning (t: 0.8 -> 1.0)
       tl.to({}, { duration: 0.2 }, 0.8);
     }, sectionRef);
 
@@ -443,7 +414,6 @@ export default function HowItWorks() {
 
       <div className="hiw-pin" ref={pinRef}>
         <div className="container-page hiw__inner">
-          {/* Header */}
           <header className="hiw-head">
             <div className="hiw-head__left">
               <p className="hiw-head__eyebrow">
@@ -461,7 +431,6 @@ export default function HowItWorks() {
               </h2>
             </div>
 
-            {/* Top Right 4 Category Squircles */}
             <div
               className="hiw-categories"
               role="group"

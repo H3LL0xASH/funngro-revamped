@@ -1,11 +1,3 @@
-/**
- * Nav — Sticky Top Navigation Bar
- *
- * Stays pinned at the top of both `/` and `/earn` and gently trims its height
- * once you start scrolling. Includes the official Funngro logo, navigation
- * links, Sign Up CTA, a Light/Green-Dark theme button (kept right in the bar
- * on phones too — never hidden inside the menu), and a mobile slide-down menu.
- */
 import { useEffect, useState } from "react";
 import { appStoreUrl, navLinks } from "../data/siteContent";
 import { ArrowUpRight, Close, GitHub, Menu, Moon, Sun } from "./Icons";

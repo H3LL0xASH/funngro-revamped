@@ -1,10 +1,3 @@
-/**
- * Logo — Official Funngro Wordmark
- *
- * Switches cleanly between dark text (for Light Cream mode) and white text
- * (for Greenish Forest Dark mode and the dark footer). Clicking always takes
- * the visitor smoothly back to Home (`/`).
- */
 import "../styles/Logo.css";
 
 export default function Logo({ light = false, className = "", onNavigate }) {

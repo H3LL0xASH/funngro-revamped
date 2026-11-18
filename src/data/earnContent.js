@@ -1,13 +1,3 @@
-/**
- * Funngro /earn Page Content Registry
- *
- * Concise, high-signal copy distilled from funngro.com/earn for clean
- * scannability across every modular section on the /earn route.
- */
-
-/* --------------------------------------------------------------------------
-   Work Categories & Payout Bands
-   -------------------------------------------------------------------------- */
 export const earnCategories = [
   {
     id: "brand-promotion",
@@ -55,9 +45,7 @@ export const earnCategories = [
   },
 ];
 
-/* --------------------------------------------------------------------------
-   Five Simple Steps (Connected Timeline)
-   -------------------------------------------------------------------------- */
+// Five Simple Steps
 export const earnFiveSteps = [
   {
     number: "01",
@@ -101,9 +89,7 @@ export const earnFiveSteps = [
   },
 ];
 
-/* --------------------------------------------------------------------------
-   Income & Influence Ladder (3 Connected Stages)
-   -------------------------------------------------------------------------- */
+// Earning Ladder
 export const earnStages = [
   {
     id: "starter",
@@ -140,9 +126,7 @@ export const earnStages = [
   },
 ];
 
-/* --------------------------------------------------------------------------
-   7-Step Connected Growth Pathway
-   -------------------------------------------------------------------------- */
+// Growth Pathway
 export const earnProgressionSteps = [
   {
     step: "01",
@@ -181,9 +165,7 @@ export const earnProgressionSteps = [
   },
 ];
 
-/* --------------------------------------------------------------------------
-   /earn Specific FAQs (Concise Answers)
-   -------------------------------------------------------------------------- */
+// FAQs
 export const earnFaqs = [
   {
     question: "Is Funngro a free online earning app?",

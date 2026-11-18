@@ -1,10 +1,3 @@
-/**
- * BrandsStrip — "Real Brands. Real Work."
- *
- * Shows a smooth infinite marquee of top Indian partner brands (ICICI, Kotak,
- * Paytm, CarDekho, Toluna, etc.) with a dark green impact stats bar underneath.
- * No arrows or outer box — the logos float right over the main page canvas.
- */
 import { brandLogos } from "../../data/siteContent";
 import { ShieldCheck, Star } from "../Icons";
 import "../../styles/BrandsStrip.css";

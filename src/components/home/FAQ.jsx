@@ -1,16 +1,9 @@
-/**
- * FAQ — Frequently Asked Questions (Home Page)
- *
- * Every question starts closed on page load so the page stays tidy.
- * Clicking a question smoothly opens its answer and closes any other open item.
- */
 import { useState } from "react";
 import { faqs } from "../../data/siteContent";
 import { ArrowUpRight, BadgeCheck, ChevronRight } from "../Icons";
 import "../../styles/FAQ.css";
 
 export default function FAQ() {
-  // null means all answers are closed when the visitor first arrives
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleItem = (index) => {

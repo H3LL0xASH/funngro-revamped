@@ -1,9 +1,3 @@
-/**
- * BusinessCTA — Brand Partnership Banner
- *
- * Bright lime call-to-action card for companies looking to run paid youth
- * campaigns, backed by live reach numbers (70 Lakh+ earners, 5,000+ brands).
- */
 import { contactSalesUrl, partnerUrl } from "../../data/siteContent";
 import {
   ArrowUpRight,

@@ -1,10 +1,3 @@
-/**
- * Journey Component ("Our Story")
- *
- * Presents Funngro's growth milestones along a straight vertical center
- * timeline with balanced left/right cards (eliminating empty voids next to the
- * expanded DEC 2022 Shark Tank India Season 2 inline video proof).
- */
 import { useState } from "react";
 import { aboutUrl, journeyFacts, journeyMilestones } from "../../data/siteContent";
 import sharkTankThumb from "../../assets/funngro/sharktank-thumb-CRRYxI2z.jpg";

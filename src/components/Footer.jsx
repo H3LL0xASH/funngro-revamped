@@ -1,9 +1,3 @@
-/**
- * Footer — Global Site Footer
- *
- * Deep forest-green footer shared across `/` and `/earn` with the white Funngro
- * logo, Play Store & App Store buttons, social links, sitemap columns, and legal info.
- */
 import {
   appleStoreUrl,
   appStoreUrl,
@@ -81,13 +75,14 @@ export default function Footer({ onNavigate }) {
             <ul className="site-footer__social">
               {socialLinks.map(({ label, href, icon }) => {
                 const Icon = socialIcons[icon] ?? Instagram;
+                const isBlank = !href || href === "#";
                 return (
                   <li key={label}>
                     <a
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href={isBlank ? "#" : href}
+                      onClick={isBlank ? (e) => e.preventDefault() : undefined}
                       aria-label={label}
+                      {...(!isBlank ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     >
                       <Icon className="size-4" />
                     </a>
@@ -129,7 +124,7 @@ export default function Footer({ onNavigate }) {
               BACKED BY SUCSEED INDOVATION
             </span>
             <div className="site-footer__dev">
-              <span>DEVELOPED BY</span>
+              <span>DESIGNED BY</span>
               <a
                 href="https://github.com/H3LL0xASH"
                 target="_blank"

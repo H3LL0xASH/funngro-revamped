@@ -1,10 +1,3 @@
-/**
- * Shared SVG Icon Library
- *
- * Centralizes all UI, navigation, trust, app-store, and social icons so
- * stroke weights, viewBoxes, and accessibility attributes remain consistent.
- */
-
 function Icon({ children, className = "", viewBox = "0 0 24 24", ...props }) {
   return (
     <svg

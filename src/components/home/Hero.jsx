@@ -1,10 +1,3 @@
-/**
- * Hero — First screen visitors see on `/`
- *
- * Shows Funngro's main headline, Sign Up & How It Works buttons, three centered
- * trust cards (Flexible work, Real earnings, Top brands), and the creator
- * portrait smoothly blended into the page background.
- */
 import { appStoreUrl } from "../../data/siteContent";
 import {
   ArrowRight,

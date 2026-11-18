@@ -18,6 +18,6 @@ Funngro is India's premier youth freelance and micro-opportunity platform connec
 - Growth: Grew organically from MVP to over 7 million (70 Lakh) registered users and 5,000+ brands.
 
 ## Technical & Agentic Accessibility
-- Primary Domain: https://www.funngro.com/
+- Primary Domain: https://funngro-revamped.vercel.app/
 - Mobile Applications: Available on Google Play Store and Apple App Store.
 - Discoverability: ARD / WebMCP compliant agent manifest at /.well-known/ai-catalog.json.

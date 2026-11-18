@@ -5,7 +5,7 @@
       "identifier": "urn:air:funngro.com:docs:llms-txt",
       "displayName": "Funngro Site LLMs Guide",
       "type": "text/plain",
-      "url": "https://www.funngro.com/llms.txt",
+      "url": "https://funngro-revamped.vercel.app/llms.txt",
       "representativeQueries": [
         "How do young people earn money on Funngro?",
         "What earning tasks are available on Funngro?",
@@ -16,7 +16,7 @@
       "identifier": "urn:air:funngro.com:services:youth-earning",
       "displayName": "Funngro Platform Overview",
       "type": "text/html",
-      "url": "https://www.funngro.com/",
+      "url": "https://funngro-revamped.vercel.app/",
       "representativeQueries": [
         "Funngro official site and mobile app",
         "Paid campaigns and brand briefs for teens",
@@ -27,7 +27,7 @@
       "identifier": "urn:air:funngro.com:brand:collaboration",
       "displayName": "Funngro for Brands and Businesses",
       "type": "text/html",
-      "url": "https://www.funngro.com/for-brands",
+      "url": "https://funngro-revamped.vercel.app/#businesses",
       "representativeQueries": [
         "Hire Gen-Z creators for brand campaigns",
         "Run youth marketing surveys with Funngro",
@@ -38,7 +38,7 @@
       "identifier": "urn:air:funngro.com:support:faq",
       "displayName": "Funngro Frequently Asked Questions",
       "type": "text/html",
-      "url": "https://www.funngro.com/faq",
+      "url": "https://funngro-revamped.vercel.app/#faq",
       "representativeQueries": [
         "Is Funngro free to join?",
         "What is the minimum age to earn on Funngro?",
