@@ -25,6 +25,18 @@ const proofPoints = [
   { icon: BadgeCheck, title: "Top brands", copy: "Trusted partners" },
 ];
 
+// Subtle floating earning badges (all under ₹4,000) — paced so only 1–2 appear at a time
+const floatingEarnings = [
+  { amount: "+₹200", slot: "one" },
+  { amount: "+₹30", slot: "two" },
+  { amount: "+₹2,000", slot: "three" },
+  { amount: "+₹100", slot: "four" },
+  { amount: "+₹333", slot: "five" },
+  { amount: "+₹15", slot: "six" },
+  { amount: "+₹1,250", slot: "seven" },
+  { amount: "+₹3,500", slot: "eight" },
+];
+
 export default function Hero() {
   return (
     <section className="hero" id="home" aria-labelledby="hero-title">
@@ -80,6 +92,18 @@ export default function Hero() {
         <div className="hero__art">
           <div className="hero__blob" aria-hidden="true" />
           <div className="hero__ring" aria-hidden="true" />
+
+          {/* Lightweight GPU-only earning tags gently floating out from behind the portrait */}
+          <div className="hero__money-stream" aria-hidden="true">
+            {floatingEarnings.map(({ amount, slot }) => (
+              <span
+                key={slot}
+                className={`hero-money hero-money--${slot}`}
+              >
+                {amount}
+              </span>
+            ))}
+          </div>
 
           {/* Showcasing creator portrait with native Funngro app UI on smartphone */}
           <div className="hero__stage">

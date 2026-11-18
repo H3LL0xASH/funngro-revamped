@@ -51,7 +51,8 @@
   flex: none;
 }
 
-/* Theme Switcher Button (Kept directly in navbar on both mobile and desktop) */
+/* Theme Switcher & GitHub Icon Buttons (Kept directly in navbar on both mobile and desktop) */
+.nav-icon-btn,
 .theme-toggle {
   display: inline-grid;
   place-items: center;
@@ -72,6 +73,7 @@
     box-shadow 200ms ease;
 }
 
+.nav-icon-btn:hover,
 .theme-toggle:hover {
   border-color: var(--color-brand);
   background: var(--color-accent-soft);
@@ -79,8 +81,22 @@
   transform: translateY(-1px);
 }
 
+.nav-icon-btn:active,
 .theme-toggle:active {
   transform: scale(0.95);
+}
+
+@media (max-width: 399px) {
+  .nav-controls {
+    gap: 0.35rem;
+  }
+
+  .nav-icon-btn,
+  .theme-toggle,
+  .nav-toggle {
+    width: 36px;
+    height: 36px;
+  }
 }
 
 .theme-toggle__icon {

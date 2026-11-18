@@ -303,7 +303,7 @@ const howSteps = [
   },
   {
     step: "04",
-    title: "Get paid\nby UPI",
+    title: "Get paid\nby UPI/BANK",
     bgImg: step4Bg,
     Visual: WalletCash3D,
   },

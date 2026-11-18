@@ -222,6 +222,138 @@
   transform: translateX(-50%) rotate(4deg);
 }
 
+/* Lightweight GPU-composited earning pills emerging gently from behind the portrait */
+.hero__money-stream {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-money {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.58rem;
+  border-radius: 999px;
+  border: 1px solid rgb(22 163 74 / 0.22);
+  background: rgb(255 255 255 / 0.9);
+  color: #15803d;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  white-space: nowrap;
+  box-shadow: 0 6px 16px -8px rgb(13 42 27 / 0.22);
+  opacity: 0;
+  will-change: transform, opacity;
+  /* 24s loop with ~5.8s gentle float & 3s stagger = strictly 1–2 slow pills at once */
+  animation: heroMoneyFloat 24s cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--delay, 0s) infinite;
+}
+
+.hero-money--one {
+  --mx: -116px;
+  --my: -102px;
+  --mr: -6deg;
+  --delay: 0s;
+}
+
+.hero-money--two {
+  --mx: 112px;
+  --my: -94px;
+  --mr: 5deg;
+  --delay: -3s;
+}
+
+.hero-money--three {
+  --mx: -124px;
+  --my: -42px;
+  --mr: -4deg;
+  --delay: -6s;
+}
+
+.hero-money--four {
+  --mx: 96px;
+  --my: -130px;
+  --mr: 6deg;
+  --delay: -9s;
+}
+
+.hero-money--five {
+  --mx: -88px;
+  --my: -134px;
+  --mr: -5deg;
+  --delay: -12s;
+}
+
+.hero-money--six {
+  --mx: 120px;
+  --my: -46px;
+  --mr: 4deg;
+  --delay: -15s;
+}
+
+.hero-money--seven {
+  --mx: -108px;
+  --my: -84px;
+  --mr: -5deg;
+  --delay: -18s;
+}
+
+.hero-money--eight {
+  --mx: 104px;
+  --my: -116px;
+  --mr: 5deg;
+  --delay: -21s;
+}
+
+/* Visible only during 0%–24% (~5.8s) of the 24s loop, gliding slowly and smoothly */
+@keyframes heroMoneyFloat {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, 0, 0) scale(0.7) rotate(0deg);
+  }
+  5% {
+    opacity: 0.92;
+  }
+  18% {
+    opacity: 0.8;
+  }
+  24% {
+    opacity: 0;
+    transform: translate3d(calc(-50% + var(--mx)), var(--my), 0) scale(0.96) rotate(var(--mr));
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(-50%, 0, 0) scale(0.7) rotate(0deg);
+  }
+}
+
+@media (max-width: 639px) {
+  .hero-money {
+    font-size: 0.65rem;
+    padding: 0.18rem 0.48rem;
+  }
+
+  .hero-money--one { --mx: -84px; --my: -76px; }
+  .hero-money--two { --mx: 82px; --my: -70px; }
+  .hero-money--three { --mx: -92px; --my: -30px; }
+  .hero-money--four { --mx: 72px; --my: -96px; }
+  .hero-money--five { --mx: -66px; --my: -100px; }
+  .hero-money--six { --mx: 90px; --my: -34px; }
+  .hero-money--seven { --mx: -80px; --my: -62px; }
+  .hero-money--eight { --mx: 76px; --my: -86px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__money-stream {
+    display: none;
+  }
+}
+
 /* Stage container: preserves intrinsic 1199/1312 aspect ratio */
 .hero__stage {
   position: relative;
@@ -501,6 +633,21 @@
     width: 30rem;
     top: 0%;
   }
+
+  /* Scale floating money paths cleanly past the larger desktop portrait & lime circle */
+  .hero-money {
+    font-size: 0.78rem;
+    padding: 0.28rem 0.68rem;
+  }
+
+  .hero-money--one { --mx: -195px; --my: -168px; }
+  .hero-money--two { --mx: 188px; --my: -155px; }
+  .hero-money--three { --mx: -215px; --my: -62px; }
+  .hero-money--four { --mx: 158px; --my: -215px; }
+  .hero-money--five { --mx: -148px; --my: -220px; }
+  .hero-money--six { --mx: 208px; --my: -68px; }
+  .hero-money--seven { --mx: -180px; --my: -130px; }
+  .hero-money--eight { --mx: 176px; --my: -190px; }
 
   .hero__art::after {
     height: 6rem;

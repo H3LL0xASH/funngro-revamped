@@ -14,9 +14,11 @@ import {
   Apple,
   BadgeCheck,
   Facebook,
+  GitHub,
   GooglePlay,
   Instagram,
   LinkedIn,
+  Mail,
   XSocial,
   YouTube,
 } from "./Icons";
@@ -121,10 +123,31 @@ export default function Footer({ onNavigate }) {
 
         <div className="site-footer__bottom">
           <p>© {currentYear} Funngro. Made in India.</p>
-          <span className="site-footer__note">
-            <BadgeCheck className="size-3.5" />
-            BACKED BY SUCSEED INDOVATION
-          </span>
+          <div className="site-footer__center">
+            <span className="site-footer__note">
+              <BadgeCheck className="size-3.5" />
+              BACKED BY SUCSEED INDOVATION
+            </span>
+            <div className="site-footer__dev">
+              <span>DEVELOPED BY</span>
+              <a
+                href="https://github.com/H3LL0xASH"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Developer GitHub profile"
+                title="GitHub — H3LL0xASH"
+              >
+                <GitHub className="size-3.5" />
+              </a>
+              <a
+                href="mailto:askfhghk11@proton.me"
+                aria-label="Email developer at askfhghk11@proton.me"
+                title="askfhghk11@proton.me"
+              >
+                <Mail className="size-3.5" />
+              </a>
+            </div>
+          </div>
           <div className="site-footer__legal">
             <a
               href="https://www.youtube-nocookie.com/embed/sGysgwm02YY?autoplay=1&rel=0"

@@ -8,7 +8,7 @@
  */
 import { useEffect, useState } from "react";
 import { appStoreUrl, navLinks } from "../data/siteContent";
-import { ArrowUpRight, Close, Menu, Moon, Sun } from "./Icons";
+import { ArrowUpRight, Close, GitHub, Menu, Moon, Sun } from "./Icons";
 import Logo from "./Logo";
 import "../styles/Nav.css";
 
@@ -140,8 +140,19 @@ export default function Nav({ currentPath = "/", onNavigate }) {
           </div>
         </div>
 
-        {/* Persistent Top-Bar Controls: Theme Switcher (Always Visible) + Mobile Menu Button */}
+        {/* Persistent Top-Bar Controls: GitHub Repo Link + Theme Switcher + Mobile Menu Button */}
         <div className="nav-controls">
+          <a
+            className="nav-icon-btn"
+            href="https://github.com/H3LL0xASH/funngro-revamped"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View Funngro Revamped on GitHub"
+            title="View source on GitHub"
+          >
+            <GitHub className="size-[18px]" />
+          </a>
+
           <button
             className={`theme-toggle${isDark ? " is-dark" : ""}`}
             type="button"

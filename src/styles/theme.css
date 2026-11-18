@@ -137,6 +137,7 @@
   background: #d9f99d;
 }
 
+:root[data-theme="dark"] .nav-icon-btn,
 :root[data-theme="dark"] .theme-toggle {
   border-color: rgb(198 244 94 / 0.28);
   background: #153624;
@@ -144,6 +145,7 @@
   box-shadow: 0 4px 14px -4px rgb(2 12 6 / 0.65);
 }
 
+:root[data-theme="dark"] .nav-icon-btn:hover,
 :root[data-theme="dark"] .theme-toggle:hover {
   border-color: #c6f45e;
   background: #1d4931;
@@ -187,6 +189,13 @@
 
 :root[data-theme="dark"] .hero__ring {
   border-color: rgb(198 244 94 / 0.22);
+}
+
+:root[data-theme="dark"] .hero-money {
+  border-color: rgb(198 244 94 / 0.34);
+  background: rgb(16 48 30 / 0.9);
+  color: #c6f45e;
+  box-shadow: 0 8px 18px -8px rgb(2 12 6 / 0.72);
 }
 
 :root[data-theme="dark"] .hero__photo {
