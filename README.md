@@ -1,5 +1,7 @@
-> See [Funngro.com SEO Report](./For-SEO-report/Funngro.com-SEO-report.md).
-
+> See [Funngro.com SEO Report](./For-SEO-report/Funngro.com-SEO-report.md)
+---
+Contact me: [ashx111@proton.me](mailto:ashx111@proton.me)
+---
 # Funngro Revamp
 
 A fast, fully responsive & modern website for **Funngro**
