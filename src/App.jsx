@@ -86,10 +86,32 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    const canonical = document.querySelector('link[rel="canonical"]');
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    const desc = document.querySelector('meta[name="description"]');
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+
     if (isEarnRoute) {
       document.title = "Earn Online with Real Brands — Funngro";
+      const earnUrl = "https://funngro-revamped.vercel.app/earn";
+      const earnDesc =
+        "Explore live projects, freelancing opportunities, paid brand campaigns, and learning resources for teens on Funngro. Start earning safely today.";
+      if (canonical) canonical.setAttribute("href", earnUrl);
+      if (ogUrl) ogUrl.setAttribute("content", earnUrl);
+      if (desc) desc.setAttribute("content", earnDesc);
+      if (ogTitle) ogTitle.setAttribute("content", "Earn Online with Real Brands — Funngro");
+      if (ogDesc) ogDesc.setAttribute("content", earnDesc);
     } else {
       document.title = "Funngro — Earn Online with India's Biggest Brands";
+      const homeUrl = "https://funngro-revamped.vercel.app/";
+      const homeDesc =
+        "Join 70 lakh+ young Indians earning with Funngro. Find paid brand campaigns, content tasks, referrals and surveys. Free to join, verified brands and UPI payouts.";
+      if (canonical) canonical.setAttribute("href", homeUrl);
+      if (ogUrl) ogUrl.setAttribute("content", homeUrl);
+      if (desc) desc.setAttribute("content", homeDesc);
+      if (ogTitle) ogTitle.setAttribute("content", "Funngro — Earn Online with India's Biggest Brands");
+      if (ogDesc) ogDesc.setAttribute("content", homeDesc);
     }
   }, [isEarnRoute]);
 

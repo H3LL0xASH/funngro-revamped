@@ -6,11 +6,11 @@
   "rewrites": [
     {
       "source": "/earn",
-      "destination": "/index.html"
+      "destination": "/earn/index.html"
     },
     {
       "source": "/earn/",
-      "destination": "/index.html"
+      "destination": "/earn/index.html"
     }
   ],
   "headers": [

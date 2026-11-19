@@ -508,10 +508,9 @@ export default function HowItWorks() {
                     <img
                       className="hiw-card__bg"
                       src={step.bgImg}
-                      alt=""
+                      alt={`Funngro Step ${step.step} - ${step.title.replace(/\n/g, " ")} illustration`}
                       width="480"
                       height="320"
-                      aria-hidden="true"
                       loading="lazy"
                       decoding="async"
                     />
